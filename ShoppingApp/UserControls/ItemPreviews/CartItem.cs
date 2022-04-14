@@ -128,6 +128,8 @@ namespace ShoppingApp.UserControls.ItemPreviews
             if (cart != null)
             {
                 _dataContext.Carts.Remove(cart);
+                _dataContext.SaveChanges();
+
                 Parent.Controls.Remove(this);
             }
         }
