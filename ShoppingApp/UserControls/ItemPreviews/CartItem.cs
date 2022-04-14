@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 using ShoppingAppData.Models;
 using ShoppingApp.ViewInterfaces;
+using ShoppingAppData;
 
 namespace ShoppingApp.UserControls.ItemPreviews
 {
     public partial class CartItem : UserControl, IProductsView
     {
+        private readonly DataContext _dataContext = new DataContext();
         public CartItem(Product product)
         {
             InitializeComponent();
@@ -121,7 +123,13 @@ namespace ShoppingApp.UserControls.ItemPreviews
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            Parent.Controls.Remove(this);
+            Cart cart = _dataContext.Carts.Where(c => c.UserId == FormApp.User.Id && c.ProductId == Product.Id).ToList().First();
+
+            if (cart != null)
+            {
+                _dataContext.Carts.Remove(cart);
+                Parent.Controls.Remove(this);
+            }
         }
 
         private void comboBoxQuantity_TextChanged(object sender, EventArgs e)

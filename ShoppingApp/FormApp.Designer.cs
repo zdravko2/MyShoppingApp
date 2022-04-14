@@ -85,6 +85,7 @@
             this.buttonOrdersList.Text = "Orders";
             this.buttonOrdersList.UseVisualStyleBackColor = true;
             this.buttonOrdersList.Visible = false;
+            this.buttonOrdersList.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonOrdersList.Click += new System.EventHandler(this.buttonOrdersList_Click);
             // 
             // buttonUsersList
@@ -103,6 +104,7 @@
             this.buttonUsersList.Text = "Users";
             this.buttonUsersList.UseVisualStyleBackColor = true;
             this.buttonUsersList.Visible = false;
+            this.buttonUsersList.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonUsersList.Click += new System.EventHandler(this.buttonUsersList_Click);
             // 
             // buttonUser
@@ -149,6 +151,7 @@
             this.buttonAddNew.Text = "Add New";
             this.buttonAddNew.UseVisualStyleBackColor = true;
             this.buttonAddNew.Visible = false;
+            this.buttonAddNew.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonSettings
@@ -166,6 +169,7 @@
             this.buttonSettings.TabIndex = 3;
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // buttonCart
@@ -183,6 +187,7 @@
             this.buttonCart.TabIndex = 2;
             this.buttonCart.Text = "Cart";
             this.buttonCart.UseVisualStyleBackColor = true;
+            this.buttonCart.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
             // 
             // buttonCategory
@@ -200,6 +205,7 @@
             this.buttonCategory.TabIndex = 1;
             this.buttonCategory.Text = "Category";
             this.buttonCategory.UseVisualStyleBackColor = true;
+            this.buttonCategory.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonCategory.Click += new System.EventHandler(this.buttonCategory_Click);
             // 
             // buttonHome
@@ -217,6 +223,7 @@
             this.buttonHome.TabIndex = 0;
             this.buttonHome.Text = "Home";
             this.buttonHome.UseVisualStyleBackColor = false;
+            this.buttonHome.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // panelTitle
