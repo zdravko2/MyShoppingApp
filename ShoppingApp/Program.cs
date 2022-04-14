@@ -1,5 +1,5 @@
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 
 namespace ShoppingApp
 {

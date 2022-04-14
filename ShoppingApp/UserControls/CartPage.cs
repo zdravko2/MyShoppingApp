@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using ShoppingAppData;
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 using ShoppingApp.UserControls.ItemPreviews;
 
 namespace ShoppingApp.UserControls
 {
     public partial class CartPage : CustomPage
     {
+        private readonly DataContext _dataContext = new DataContext();
         public CartPage(User user)
         {
             InitializeComponent();
@@ -58,14 +60,13 @@ namespace ShoppingApp.UserControls
         //Function used to populate items in the flow layout panel
         public void PopulateWithItems(User user)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                CartItem cartItem = new CartItem(new Product()
-                {
-                    Price = 100,
-                    Promotion = 10
-                });
+            List<Cart> cartlist = _dataContext.Carts.Where(c => c.UserId == user.Id).ToList();
 
+            for (int i = 0; i < cartlist.Count; i++)
+            {
+                Product product = _dataContext.Products.Find(cartlist[i].ProductId);
+
+                CartItem cartItem = new CartItem(product);
                 MainControl.Controls.Add(cartItem);
             }
         }
@@ -91,6 +92,36 @@ namespace ShoppingApp.UserControls
             labelSelected.Text = "$" + selectedPrice.ToString();
             labelDiscounts.Text = "-$" + selectedDiscounts.ToString();
             labelTotal.Text = "$" + totalPrice.ToString();
+        }
+
+        private void buttonBuy_Click(object sender, EventArgs e)
+        {
+            if (MainControl.Controls.Count == 0)
+            {
+                MessageBox.Show("You do not have any items in your cart.", "Error");
+                return;
+            }
+            for (int i = 0; i < MainControl.Controls.Count; i++)
+            {
+                if (((CartItem)MainControl.Controls[i]).Selected)
+                {
+                    Order order = new Order();
+                    order.UserId = FormApp.User.Id;
+                    order.ProductId = ((CartItem)MainControl.Controls[i]).Id;
+                    order.Quantity = ((CartItem)MainControl.Controls[i]).Quantity;
+
+                    if (_dataContext.Users.Find(order.UserId) == null || _dataContext.Products.Find(order.ProductId) == null)
+                    {
+                        MessageBox.Show("There was a problem when creating the order.", "Error");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Order added successfully");
+                    }
+                    _dataContext.Orders.Add(order);
+                    _dataContext.SaveChanges();
+                }
+            }
         }
     }
 }

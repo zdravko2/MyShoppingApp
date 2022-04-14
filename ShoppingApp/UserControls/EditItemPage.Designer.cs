@@ -40,12 +40,12 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -55,7 +55,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::ShoppingApp.Properties.Resources.image_error;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(83, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(288, 184);
             this.pictureBox1.TabIndex = 0;
@@ -69,7 +69,7 @@
             this.buttonUploadImage.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonUploadImage.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonUploadImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUploadImage.Location = new System.Drawing.Point(138, 241);
+            this.buttonUploadImage.Location = new System.Drawing.Point(83, 243);
             this.buttonUploadImage.Margin = new System.Windows.Forms.Padding(10);
             this.buttonUploadImage.Name = "buttonUploadImage";
             this.buttonUploadImage.Size = new System.Drawing.Size(178, 41);
@@ -86,7 +86,7 @@
             this.buttonReset.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonReset.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReset.Location = new System.Drawing.Point(138, 302);
+            this.buttonReset.Location = new System.Drawing.Point(83, 304);
             this.buttonReset.Margin = new System.Windows.Forms.Padding(10);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(178, 41);
@@ -103,7 +103,7 @@
             this.buttonDelete.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(138, 363);
+            this.buttonDelete.Location = new System.Drawing.Point(83, 365);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(10);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(178, 41);
@@ -116,7 +116,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(374, 108);
+            this.label2.Location = new System.Drawing.Point(331, 108);
             this.label2.Margin = new System.Windows.Forms.Padding(10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 32);
@@ -126,20 +126,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.AutoCompleteCustomSource.AddRange(new string[] {
-            "cat",
-            "dog"});
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(537, 58);
+            this.textBox1.Location = new System.Drawing.Point(494, 58);
             this.textBox1.Margin = new System.Windows.Forms.Padding(10);
             this.textBox1.MaxLength = 255;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(271, 31);
+            this.textBox1.Size = new System.Drawing.Size(314, 31);
             this.textBox1.TabIndex = 10;
             // 
             // textBox2
@@ -150,18 +147,18 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox2.Location = new System.Drawing.Point(537, 109);
+            this.textBox2.Location = new System.Drawing.Point(494, 109);
             this.textBox2.Margin = new System.Windows.Forms.Padding(10);
             this.textBox2.MaxLength = 255;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(271, 31);
+            this.textBox2.Size = new System.Drawing.Size(314, 31);
             this.textBox2.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(374, 56);
+            this.label1.Location = new System.Drawing.Point(331, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 32);
@@ -173,7 +170,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(374, 160);
+            this.label3.Location = new System.Drawing.Point(331, 160);
             this.label3.Margin = new System.Windows.Forms.Padding(10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(155, 32);
@@ -187,12 +184,12 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.richTextBox1.Location = new System.Drawing.Point(537, 160);
+            this.richTextBox1.Location = new System.Drawing.Point(494, 160);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(10);
             this.richTextBox1.Multiline = false;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(271, 154);
+            this.richTextBox1.Size = new System.Drawing.Size(314, 154);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
@@ -204,18 +201,18 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox3.Location = new System.Drawing.Point(537, 334);
+            this.textBox3.Location = new System.Drawing.Point(494, 334);
             this.textBox3.Margin = new System.Windows.Forms.Padding(10);
             this.textBox3.MaxLength = 255;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(271, 31);
+            this.textBox3.Size = new System.Drawing.Size(314, 31);
             this.textBox3.TabIndex = 16;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(374, 333);
+            this.label4.Location = new System.Drawing.Point(331, 333);
             this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 32);
@@ -223,26 +220,11 @@
             this.label4.Text = "Price:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox4
-            // 
-            this.textBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox4.Location = new System.Drawing.Point(537, 385);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(10);
-            this.textBox4.MaxLength = 255;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(271, 31);
-            this.textBox4.TabIndex = 18;
-            // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(374, 384);
+            this.label5.Location = new System.Drawing.Point(331, 384);
             this.label5.Margin = new System.Windows.Forms.Padding(10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 32);
@@ -258,18 +240,18 @@
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox5.Location = new System.Drawing.Point(537, 436);
+            this.textBox5.Location = new System.Drawing.Point(494, 436);
             this.textBox5.Margin = new System.Windows.Forms.Padding(10);
             this.textBox5.MaxLength = 255;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(271, 31);
+            this.textBox5.Size = new System.Drawing.Size(314, 31);
             this.textBox5.TabIndex = 20;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(374, 435);
+            this.label6.Location = new System.Drawing.Point(331, 435);
             this.label6.Margin = new System.Windows.Forms.Padding(10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(155, 32);
@@ -285,17 +267,18 @@
             this.buttonCreate.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCreate.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreate.Location = new System.Drawing.Point(138, 424);
+            this.buttonCreate.Location = new System.Drawing.Point(83, 426);
             this.buttonCreate.Margin = new System.Windows.Forms.Padding(10);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(178, 41);
             this.buttonCreate.TabIndex = 21;
-            this.buttonCreate.Text = "Create Product";
+            this.buttonCreate.Text = "Save Product";
             this.buttonCreate.UseVisualStyleBackColor = false;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Controls.Add(this.buttonCreate);
             this.panel1.Controls.Add(this.richTextBox1);
@@ -303,7 +286,6 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.buttonUploadImage);
-            this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.buttonReset);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.buttonDelete);
@@ -318,6 +300,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(848, 503);
             this.panel1.TabIndex = 22;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(494, 384);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(314, 34);
+            this.comboBox1.TabIndex = 24;
             // 
             // buttonClose
             // 
@@ -337,7 +331,6 @@
             // 
             // EditItemPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.Controls.Add(this.panel1);
             this.MainControl = this.panel1;
             this.Name = "EditItemPage";
@@ -354,7 +347,6 @@
 
         private PictureBox pictureBox1;
         private TextBox textBox2;
-        private TextBox textBox4;
         private TextBox textBox5;
         private Button buttonUploadImage;
         private Button buttonReset;
@@ -371,5 +363,6 @@
         private Button buttonCreate;
         private Panel panel1;
         private Button buttonClose;
+        private ComboBox comboBox1;
     }
 }

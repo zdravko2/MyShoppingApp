@@ -28,6 +28,7 @@ namespace ShoppingApp
             if (temp.Count > 0)
             {
                 User user = new User();
+                user.Id = temp[0].Id;
                 user.Username = temp[0].Username.Trim();
                 user.Password = temp[0].Password.Trim();
                 user.RoleId = temp[0].RoleId;

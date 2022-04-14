@@ -48,7 +48,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(858, 678);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(853, 726);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -64,9 +64,9 @@
             this.panelOrderInfo.Controls.Add(this.labelDiscounts);
             this.panelOrderInfo.Controls.Add(this.labelSelected);
             this.panelOrderInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelOrderInfo.Location = new System.Drawing.Point(858, 0);
+            this.panelOrderInfo.Location = new System.Drawing.Point(853, 0);
             this.panelOrderInfo.Name = "panelOrderInfo";
-            this.panelOrderInfo.Size = new System.Drawing.Size(508, 678);
+            this.panelOrderInfo.Size = new System.Drawing.Size(513, 726);
             this.panelOrderInfo.TabIndex = 1;
             // 
             // label5
@@ -74,7 +74,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Demi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(61, 514);
+            this.label5.Location = new System.Drawing.Point(61, 562);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 46);
             this.label5.TabIndex = 11;
@@ -111,7 +111,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(61, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 46);
+            this.label1.Size = new System.Drawing.Size(408, 46);
             this.label1.TabIndex = 6;
             this.label1.Text = "Order information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,7 +125,7 @@
             this.buttonBuy.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonBuy.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonBuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuy.Location = new System.Drawing.Point(160, 583);
+            this.buttonBuy.Location = new System.Drawing.Point(162, 631);
             this.buttonBuy.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBuy.Name = "buttonBuy";
             this.buttonBuy.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -133,15 +133,16 @@
             this.buttonBuy.TabIndex = 5;
             this.buttonBuy.Text = "Order Now";
             this.buttonBuy.UseVisualStyleBackColor = false;
+            this.buttonBuy.Click += new System.EventHandler(this.buttonBuy_Click);
             // 
             // labelTotal
             // 
             this.labelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotal.Font = new System.Drawing.Font("Franklin Gothic Demi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTotal.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelTotal.Location = new System.Drawing.Point(263, 514);
+            this.labelTotal.Location = new System.Drawing.Point(247, 562);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(182, 46);
+            this.labelTotal.Size = new System.Drawing.Size(222, 46);
             this.labelTotal.TabIndex = 12;
             this.labelTotal.Text = "$30";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,7 +152,7 @@
             this.labelDiscounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDiscounts.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDiscounts.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelDiscounts.Location = new System.Drawing.Point(282, 162);
+            this.labelDiscounts.Location = new System.Drawing.Point(287, 162);
             this.labelDiscounts.Name = "labelDiscounts";
             this.labelDiscounts.Size = new System.Drawing.Size(163, 46);
             this.labelDiscounts.TabIndex = 10;
@@ -163,7 +164,7 @@
             this.labelSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelected.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSelected.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelSelected.Location = new System.Drawing.Point(282, 116);
+            this.labelSelected.Location = new System.Drawing.Point(287, 116);
             this.labelSelected.Name = "labelSelected";
             this.labelSelected.Size = new System.Drawing.Size(163, 46);
             this.labelSelected.TabIndex = 9;
@@ -177,7 +178,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelOrderInfo);
             this.Name = "CartPage";
-            this.Size = new System.Drawing.Size(1366, 678);
+            this.Size = new System.Drawing.Size(1366, 726);
             this.Resize += new System.EventHandler(this.CartPage_Resize);
             this.panelOrderInfo.ResumeLayout(false);
             this.ResumeLayout(false);

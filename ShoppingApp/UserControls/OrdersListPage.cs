@@ -13,29 +13,28 @@ using ShoppingApp.UserControls.ItemPreviews;
 
 namespace ShoppingApp.UserControls
 {
-    public partial class UserListPage : CustomPage
+    public partial class OrdersListPage : CustomPage
     {
         private readonly DataContext _dataContext = new DataContext();
-        public UserListPage()
+        public OrdersListPage()
         {
             InitializeComponent();
 
             //Settings for initializing the Page
-            TabPage tabPage = new TabPage("Listing");
+            TabPage tabPage = new TabPage("Users list");
             tabPage.Controls.Add(this);
             FormApp.TabControl.Controls.Add(tabPage);
             FormApp.TabControl.SelectedTab = tabPage;
 
             MainControl = flowLayoutPanel1;
 
-            List<User> users = _dataContext.Users.ToList();
-            PopulateWithItems(users);
-            UserListPage_Resize(this, new EventArgs());
+            List<Order> orders = _dataContext.Orders.ToList();
+            PopulateWithItems(orders);
+            OrdersListPage_Resize(this, new EventArgs());
         }
 
-
         //Event used to handle resizing of the Form
-        private void UserListPage_Resize(object sender, EventArgs e)
+        private void OrdersListPage_Resize(object sender, EventArgs e)
         {
             if (MainControl == null) return;
 
@@ -46,12 +45,12 @@ namespace ShoppingApp.UserControls
         }
 
         //Function used to populate items in the flow layout panel
-        public void PopulateWithItems(List<User> users)
+        public void PopulateWithItems(List<Order> orders)
         {
-            for (int i = 0; i < users.Count && i < users.Count; i++)
+            for (int i = 0; i < orders.Count; i++)
             {
-                UserItem userItem = new UserItem(users[i]);
-                MainControl.Controls.Add(userItem);
+                OrderItem orderItem = new OrderItem(orders[i]);
+                MainControl.Controls.Add(orderItem);
             }
         }
     }

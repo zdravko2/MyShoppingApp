@@ -50,9 +50,12 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::ShoppingApp.Properties.Resources.image_error;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.ErrorImage = global::ShoppingApp.Properties.Resources.image_error;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 164);
+            this.pictureBox1.Size = new System.Drawing.Size(238, 158);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.OnClick);

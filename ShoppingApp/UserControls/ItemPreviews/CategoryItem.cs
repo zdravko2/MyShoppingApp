@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 using ShoppingAppData;
 
 namespace ShoppingApp.UserControls.ItemPreviews
@@ -44,7 +44,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
         public Byte[] Thumbnail
         {
             get { return this.Category.Thumbnail; }
-            set { this.Category.Thumbnail = value; }
+            set { this.Category.Thumbnail = value; pictureBox1.BackgroundImage = Converter.ToImage(this.Category.Thumbnail); }
         }
 
         #endregion

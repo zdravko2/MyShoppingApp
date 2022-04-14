@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using ShoppingApp.Controlers;
 using ShoppingAppData.Models;
 
-namespace ShoppingAppData.Models
+namespace ShoppingApp.ViewInterfaces
 {
     public interface IProductsView : IBaseView<Product>
     {

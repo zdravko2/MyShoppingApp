@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ShoppingAppData.Models;
+using ShoppingApp.ViewInterfaces;
 
 namespace ShoppingApp.UserControls.ItemPreviews
 {
-    public partial class UserItem : UserControl
+    public partial class UserItem : UserControl, IUsersView
     {
         public UserItem(User user)
         {
@@ -20,6 +21,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
             //Setting main value of the control
             User = user;
 
+            //Subscribing the controls to OnClick event
             labelId.Click += OnClick;
             labelUsername.Click += OnClick;
             labelRole.Click += OnClick;
@@ -47,6 +49,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
             set { this.User.Id = value; switch (User.Id) 
                 {   case 0: labelRole.Text = "User"; break;
                     case 1: labelRole.Text = "Admin"; break;
+                    default: labelRole.Text = "Undefined"; break;
                 } 
             }
         }

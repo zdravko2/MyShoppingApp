@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 using ShoppingApp.UserControls.ItemPreviews;
 using ShoppingAppData;
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 using ShoppingAppData.Models;
 
 namespace ShoppingApp.UserControls.ItemPreviews
@@ -85,9 +85,9 @@ namespace ShoppingApp.UserControls.ItemPreviews
         {
             //Update control values
             Id = product.Id;
-            Brand = product.Brand;
-            Model = product.Model;
-            Specifications = product.Specifications;
+            Brand = product.Brand.Trim();
+            Model = product.Model.Trim();
+            Specifications = product.Specifications.Trim();
             Price = product.Price;
             CategoryId = product.CategoryId;
             Promotion = product.Promotion;
@@ -105,7 +105,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
         //Event that handles clicking on the item
         private void OnClick(object sender, EventArgs e)
         {
-            ItemPage itemPage = new ItemPage(Product);
+            ProductPage productPage = new ProductPage(Product);
         }
     }
 }

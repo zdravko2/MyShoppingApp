@@ -73,9 +73,29 @@ namespace ShoppingApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_category_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-category-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_category_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-category-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_category_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_category_64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +136,26 @@ namespace ShoppingApp.Properties {
         internal static System.Drawing.Bitmap icons8_macos_close_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-macos-close-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_percentage_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-percentage-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_percentage_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_percentage_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

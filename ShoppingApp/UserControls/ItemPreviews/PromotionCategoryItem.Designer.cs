@@ -35,6 +35,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::ShoppingApp.Properties.Resources.icons8_percentage_100;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(238, 164);

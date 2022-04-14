@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 using ShoppingApp.UserControls;
 using ShoppingApp.UserControls.ItemPreviews;
 using System.Windows.Forms;
@@ -75,14 +75,28 @@ namespace ShoppingApp
                 {
                     products.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
                     products.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
-                    //products.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Category, "%" + tempArgs + "%")).ToList());
+                    foreach (Product p in _dataContext.Products.ToList())
+                    {
+                        List<Category> tempCategories = _dataContext.Categories.Where(c => c.Id == p.CategoryId).ToList();
+                        if (tempCategories.Count > 0 && tempCategories[0].Title.Contains(tempArgs))
+                        {
+                            products.Add(p);
+                        }
+                    }
                 }
                 else
                 {
                     List<Product> tempList = new List<Product>();
                     tempList.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
                     tempList.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
-                    //tempList.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Category, "%" + tempArgs + "%")).ToList());
+                    foreach (Product p in _dataContext.Products.ToList())
+                    {
+                        List<Category> tempCategories = _dataContext.Categories.Where(c => c.Id == p.CategoryId).ToList();
+                        if (tempCategories.Count > 0 && tempCategories[0].Title.Contains(tempArgs))
+                        {
+                            tempList.Add(p);
+                        }
+                    }
 
                     products = products.Where(p => tempList.Contains(p)).ToList();
                 }
@@ -96,18 +110,21 @@ namespace ShoppingApp
         //Used to clear unused pages and resourses
         private void ClearPages()
         {
-            for (int i = 1; i < TabControl.TabPages.Count; i++)
+            for (int i = 1; i < FormApp.TabControl.TabPages.Count; i++)
             {
-                TabControl.TabPages.RemoveAt(i);
+                FormApp.TabControl.TabPages.RemoveAt(i);
             }
+        }
+
+        private void OnMenuButtonClick(object sender, EventArgs e)
+        {
+            //Preparing UI
+            ClearPages();
+            panelButtonIndex.Top = (sender as Button).Top;
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            //Preparing UI
-            ClearPages();
-            panelButtonIndex.Top = buttonHome.Top;
-
             //Getting data from database and storing it in a list
             List<Product> products = _dataContext.Products.ToList();
 
@@ -117,10 +134,6 @@ namespace ShoppingApp
 
         private void buttonCategory_Click(object sender, EventArgs e)
         {
-            //Preparing UI
-            ClearPages();
-            panelButtonIndex.Top = buttonCategory.Top;
-
             //Getting data from database and storing it in a list
             List<Category> categories = _dataContext.Categories.ToList();
 
@@ -130,29 +143,20 @@ namespace ShoppingApp
 
         private void buttonCart_Click(object sender, EventArgs e)
         {
-            //Preparing UI
-            ClearPages();
-            panelButtonIndex.Top = buttonCart.Top;
-
             //Opening a new Page with the current user
             CartPage cartPage = new CartPage(FormApp.User);
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            //Preparing UI
-            ClearPages();
-            panelButtonIndex.Top = buttonSettings.Top;
+
         }
 
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
-            //Preparing Ui
-            ClearPages();
-            panelButtonIndex.Top = buttonAddNew.Top;
-
-            //Opening new Page for creating/editing an item
-            EditItemPage editItemPage = new EditItemPage();
+            //Opening new Page for creating an item
+            AddNewPage addNewPage = new AddNewPage();
+            //EditItemPage editItemPage = new EditItemPage();
         }
 
         //Button for logging out and switching users
@@ -172,10 +176,14 @@ namespace ShoppingApp
 
         private void buttonUsersList_Click(object sender, EventArgs e)
         {
-            ClearPages();
-            panelButtonIndex.Top = (sender as Button).Top;
+            //Opening new Page for list of all users
+            UsersListPage usersListPage = new UsersListPage();
+        }
 
-            UserListPage userListPage = new UserListPage();
+        private void buttonOrdersList_Click(object sender, EventArgs e)
+        {
+            //Opening new Page for list of all orders
+            OrdersListPage ordersListPage = new OrdersListPage();
         }
     }
 }

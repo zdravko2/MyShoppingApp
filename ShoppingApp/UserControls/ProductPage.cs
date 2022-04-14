@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
+using ShoppingApp.ViewInterfaces;
 using ShoppingApp.UserControls;
 using ShoppingAppData;
 
 namespace ShoppingApp.UserControls
 {
-    public partial class ItemPage : CustomPage, IProductsView
+    public partial class ProductPage : CustomPage, IProductsView
     {
         private readonly DataContext _dataContext = new DataContext();
-        public ItemPage(Product product)
+        public ProductPage(Product product)
         {
             InitializeComponent();
 
             //Settings for initializing the Page
-            TabPage tabPage = new TabPage(product.Brand + " " + product.Model);
+            TabPage tabPage = new TabPage(product.Brand.Trim() + " " + product.Model.Trim());
             tabPage.Controls.Add(this);
             FormApp.TabControl.Controls.Add(tabPage);
             FormApp.TabControl.SelectedTab = tabPage;
@@ -99,9 +99,9 @@ namespace ShoppingApp.UserControls
 
             //Update control values
             Id = product.Id;
-            Brand = product.Brand;
-            Model = product.Model;
-            Specifications = product.Specifications;
+            Brand = product.Brand.Trim();
+            Model = product.Model.Trim();
+            Specifications = product.Specifications.Trim();
             Price = product.Price;
             CategoryId = product.CategoryId;
             Promotion = product.Promotion;
@@ -111,15 +111,30 @@ namespace ShoppingApp.UserControls
             if (Promotion > 0)
             {
                 labelPromotion.Visible = true;
-                labelPromotion.Text = "$" + Price.ToString();
-                labelPrice.Text = "$" + (Price - Price * Promotion / 100).ToString();
+                labelPromotion.Text = "$" + Price.ToString("0.00");
+                labelPrice.Text = "$" + (Price - Price * Promotion / 100).ToString("0.00");
             }
         }
 
         //Event that adds a product to the cart of the user in the database
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
+            Cart cart = new Cart() { UserId = FormApp.User.Id, ProductId = this.Product.Id, };
 
+            if (_dataContext.Users.Find(cart.UserId) == null || _dataContext.Products.Find(cart.ProductId) == null)
+            {
+                MessageBox.Show("There was a porblem finding the product or user", "Eror");
+                return;
+            }
+
+            if (_dataContext.Carts.Where(c => c.UserId == cart.UserId && c.ProductId == cart.ProductId).ToList().Count > 0)
+            {
+                MessageBox.Show("The item has been already added to cart.");
+                return;
+            }
+
+            _dataContext.Carts.Add(cart);
+            _dataContext.SaveChanges();
         }
 
         //Event that creates a page for editing a product when button is clicked

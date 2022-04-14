@@ -37,12 +37,13 @@
             // 
             this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
             this.labelUsername.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(122)))), ((int)(((byte)(247)))));
-            this.labelUsername.Location = new System.Drawing.Point(97, 4);
+            this.labelUsername.Location = new System.Drawing.Point(97, 0);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(3);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(259, 43);
+            this.labelUsername.Size = new System.Drawing.Size(312, 50);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Username";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -52,10 +53,10 @@
             this.labelRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRole.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(203)))), ((int)(((byte)(180)))));
-            this.labelRole.Location = new System.Drawing.Point(362, 4);
+            this.labelRole.Location = new System.Drawing.Point(415, 0);
             this.labelRole.Margin = new System.Windows.Forms.Padding(3);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(127, 43);
+            this.labelRole.Size = new System.Drawing.Size(274, 50);
             this.labelRole.TabIndex = 3;
             this.labelRole.Text = "Role";
             this.labelRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -63,11 +64,11 @@
             // labelId
             // 
             this.labelId.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(122)))), ((int)(((byte)(247)))));
-            this.labelId.Location = new System.Drawing.Point(19, 4);
+            this.labelId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(203)))), ((int)(((byte)(180)))));
+            this.labelId.Location = new System.Drawing.Point(19, 0);
             this.labelId.Margin = new System.Windows.Forms.Padding(3);
             this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(72, 43);
+            this.labelId.Size = new System.Drawing.Size(72, 50);
             this.labelId.TabIndex = 4;
             this.labelId.Text = "Id";
             this.labelId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -81,7 +82,7 @@
             this.Controls.Add(this.labelRole);
             this.Controls.Add(this.labelUsername);
             this.Name = "UserItem";
-            this.Size = new System.Drawing.Size(639, 50);
+            this.Size = new System.Drawing.Size(692, 50);
             this.Click += new System.EventHandler(this.OnClick);
             this.ResumeLayout(false);
 

@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ShoppingAppData.Models;
-using ShoppingApp.Controlers;
-using ShoppingApp.UserControls.ItemPreviews;
 using ShoppingAppData;
 
 namespace ShoppingApp.UserControls
@@ -24,6 +22,7 @@ namespace ShoppingApp.UserControls
         {
             InitializeComponent();
 
+            //Settings for initializing the Page
             TabPage tabPage = new TabPage("Add Product");
             tabPage.Controls.Add(this);
             FormApp.TabControl.Controls.Add(tabPage);
@@ -31,6 +30,7 @@ namespace ShoppingApp.UserControls
 
             buttonCreate.Text = "Add Product";
             buttonDelete.Visible = false;
+            MainControl = panel1;
 
             //Filling autocomplete source for Brands and Categories
             FillAutocompleteSource();
@@ -43,6 +43,7 @@ namespace ShoppingApp.UserControls
         {
             InitializeComponent();
 
+            //Settings for initializing the Page
             TabPage tabPage = new TabPage("Edit Product");
             tabPage.Controls.Add(this);
             FormApp.TabControl.Controls.Add(tabPage);
@@ -50,6 +51,7 @@ namespace ShoppingApp.UserControls
 
             buttonCreate.Text = "Update Product";
             buttonDelete.Visible = true;
+            MainControl = panel1;
 
             //Filling autocomplete source for Brands and Categories
             FillAutocompleteSource();
@@ -92,8 +94,8 @@ namespace ShoppingApp.UserControls
             get { return this.Product.CategoryId; }
             set { this.Product.CategoryId = value;
                 Category c = _dataContext.Categories.Find(this.Product.CategoryId);
-                if (c != null)  textBox4.Text = c.Title;
-                else            textBox4.Text = string.Empty;
+                if (c != null)  comboBox1.SelectedItem = c.Title;
+                else            comboBox1.SelectedItem = string.Empty;
             }
         }
         public int Promotion
@@ -120,13 +122,8 @@ namespace ShoppingApp.UserControls
         public void FillAutocompleteSource()
         {
             //Filling autocomplete source for Brands and Categories
-            AutoCompleteStringCollection collectionBrands = new AutoCompleteStringCollection();
-            collectionBrands.AddRange(_dataContext.Products.Select(p => p.Brand.Trim()).Distinct().ToArray());
-            textBox1.AutoCompleteCustomSource = collectionBrands;
-
-            AutoCompleteStringCollection collectionCategories = new AutoCompleteStringCollection();
-            collectionCategories.AddRange(_dataContext.Categories.Select(c => c.Title.Trim()).ToList().ToArray());
-            textBox4.AutoCompleteCustomSource = collectionCategories;
+            textBox1.AutoCompleteCustomSource.AddRange(_dataContext.Products.Select(p => p.Brand.Trim()).Distinct().ToArray());
+            comboBox1.Items.AddRange(_dataContext.Categories.Select(c => c.Title.Trim()).ToList().ToArray());
         }
 
         public void DisplayInfo(Product product)
@@ -167,7 +164,7 @@ namespace ShoppingApp.UserControls
             textBox2.Text = Model;
             richTextBox1.Text = Specifications;
             textBox3.Text = Price.ToString();
-            textBox4.Text = _dataContext.Categories.Find(CategoryId).Title;
+            comboBox1.Text = _dataContext.Categories.Find(CategoryId).Title;
             textBox5.Text = Promotion.ToString();
             pictureBox1.BackgroundImage = Converter.ToImage(Thumbnail);
         }
@@ -183,10 +180,11 @@ namespace ShoppingApp.UserControls
             if (textBox2.Text == "") errorArgs += "Model is not declared.\n";
             if (richTextBox1.Text == "") errorArgs += "Specifications are not declared.\n";
             if (textBox3.Text == "") errorArgs += "Price is not declared.\n";
-            if (textBox4.Text == "") errorArgs += "Category is not declared.\n";
+            if (comboBox1.Text == "") errorArgs += "Category is not declared.\n";
             if (textBox5.Text == "") errorArgs += "Promotion is not declared.\n";
-            if (!int.TryParse(textBox5.Text.Trim(), out int result1)) errorArgs += "Promotion should be an integer.\n";
+            if (!int.TryParse(textBox5.Text.Trim(), out int result1) && result1 >= 0 && result1 < 100) errorArgs += "Promotion should be an integer from 0 to 99.\n";
             if (!decimal.TryParse(textBox3.Text.Trim(), out decimal result2) || result2 == 0) errorArgs += "Price is not set correctly.\n";
+            if (Thumbnail == Converter.ToBinary(Properties.Resources.image_error)) errorArgs += "Thumbnail image is not set.";
 
             if (errorArgs != string.Empty)
             {
@@ -204,7 +202,7 @@ namespace ShoppingApp.UserControls
                 newProduct.Model = textBox2.Text;
                 newProduct.Specifications = richTextBox1.Text;
                 newProduct.Price = Convert.ToDecimal(textBox3.Text);
-                newProduct.CategoryId = _dataContext.Categories.First(c => c.Title == textBox4.Text).Id;
+                newProduct.CategoryId = _dataContext.Categories.First(c => c.Title == comboBox1.Text).Id;
                 newProduct.Promotion = Convert.ToInt32(textBox5.Text);
                 newProduct.Thumbnail = Converter.ToBinary(pictureBox1.BackgroundImage);
 
@@ -226,7 +224,7 @@ namespace ShoppingApp.UserControls
                 newProduct.Model = textBox2.Text;
                 newProduct.Specifications = richTextBox1.Text;
                 newProduct.Price = Convert.ToDecimal(textBox3.Text);
-                newProduct.CategoryId = _dataContext.Categories.First(c => c.Title == textBox4.Text).Id;
+                newProduct.CategoryId = _dataContext.Categories.First(c => c.Title == comboBox1.Text).Id;
                 newProduct.Promotion = Convert.ToInt32(textBox5.Text);
                 newProduct.Thumbnail = Converter.ToBinary(pictureBox1.BackgroundImage);
 
@@ -244,10 +242,27 @@ namespace ShoppingApp.UserControls
 
             if (result == DialogResult.Yes)
             {
-                _dataContext.Products.Remove(Product);
+                if (_dataContext.Products.Find(Product.Id) == null)
+                {
+                    MessageBox.Show("Item was not found.");
+                    return;
+                }
+                else
+                {
+                    //Remove Carts from Carts table where there is this Product
+                    List<Cart> carts = _dataContext.Carts.Where(c => c.ProductId == Product.Id).ToList();
+                    _dataContext.Carts.RemoveRange(carts);
 
-                _dataContext.SaveChanges().ToString();
-                MessageBox.Show("Item deleted successfully.");
+                    //Remove products from Orders table
+                    List<Order> orders = _dataContext.Orders.Where(o => o.ProductId == Product.Id).ToList();
+                    _dataContext.Orders.RemoveRange(orders);
+
+                    //Remove product from Product table
+                    _dataContext.Products.Remove(Product);
+
+                    _dataContext.SaveChanges().ToString();
+                    MessageBox.Show("Item deleted successfully.");
+                }
 
                 //Opens a new blank page and frees resourses
                 EditItemPage newEditItemPage = new EditItemPage();

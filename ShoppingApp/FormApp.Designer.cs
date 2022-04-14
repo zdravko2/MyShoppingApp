@@ -85,6 +85,7 @@
             this.buttonOrdersList.Text = "Orders";
             this.buttonOrdersList.UseVisualStyleBackColor = true;
             this.buttonOrdersList.Visible = false;
+            this.buttonOrdersList.Click += new System.EventHandler(this.buttonOrdersList_Click);
             // 
             // buttonUsersList
             // 
@@ -228,7 +229,7 @@
             this.panelTitle.Location = new System.Drawing.Point(200, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(884, 100);
+            this.panelTitle.Size = new System.Drawing.Size(994, 100);
             this.panelTitle.TabIndex = 0;
             // 
             // label1
@@ -236,7 +237,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(400, 56);
+            this.label1.Location = new System.Drawing.Point(510, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 26);
             this.label1.TabIndex = 0;
@@ -249,7 +250,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.textBox1.Location = new System.Drawing.Point(485, 54);
+            this.textBox1.Location = new System.Drawing.Point(595, 54);
             this.textBox1.MaxLength = 255;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(387, 31);
@@ -264,7 +265,7 @@
             this.labelTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.labelTitle.Location = new System.Drawing.Point(15, 20);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(857, 26);
+            this.labelTitle.Size = new System.Drawing.Size(967, 26);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Title";
             // 
@@ -279,7 +280,7 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.Padding = new System.Drawing.Point(0, 0);
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(884, 546);
+            this.tabControlMain.Size = new System.Drawing.Size(994, 546);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.TabStop = false;
@@ -291,7 +292,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(876, 508);
+            this.tabPage1.Size = new System.Drawing.Size(986, 508);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -300,14 +301,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(187)))), ((int)(((byte)(194)))));
-            this.ClientSize = new System.Drawing.Size(1084, 646);
+            this.ClientSize = new System.Drawing.Size(1194, 646);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(187)))), ((int)(((byte)(194)))));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1080, 680);
+            this.MinimumSize = new System.Drawing.Size(1150, 680);
             this.Name = "FormApp";
             this.Text = "Shopping App";
             this.Resize += new System.EventHandler(this.FormApp_Resize);

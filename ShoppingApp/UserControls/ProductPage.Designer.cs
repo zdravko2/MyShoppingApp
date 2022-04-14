@@ -1,6 +1,6 @@
 ﻿namespace ShoppingApp.UserControls
 {
-    partial class ItemPage
+    partial class ProductPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -89,7 +89,7 @@
             this.buttonEdit.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonEdit.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(117, 399);
+            this.buttonEdit.Location = new System.Drawing.Point(98, 399);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(10);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(185, 51);
@@ -105,7 +105,7 @@
             this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
             this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
             this.flowLayoutPanel1.Controls.Add(this.pictureBox3);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 264);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(31, 264);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(323, 101);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -149,7 +149,7 @@
             this.buttonAddToCart.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddToCart.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonAddToCart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddToCart.Location = new System.Drawing.Point(425, 399);
+            this.buttonAddToCart.Location = new System.Drawing.Point(404, 399);
             this.buttonAddToCart.Margin = new System.Windows.Forms.Padding(10);
             this.buttonAddToCart.Name = "buttonAddToCart";
             this.buttonAddToCart.Size = new System.Drawing.Size(185, 51);
@@ -162,7 +162,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::ShoppingApp.Properties.Resources.image_error;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 44);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(323, 209);
             this.pictureBox1.TabIndex = 0;
@@ -172,11 +172,11 @@
             // 
             this.labelPromotion.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point);
             this.labelPromotion.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelPromotion.Location = new System.Drawing.Point(653, 430);
+            this.labelPromotion.Location = new System.Drawing.Point(602, 430);
             this.labelPromotion.Margin = new System.Windows.Forms.Padding(3);
             this.labelPromotion.Name = "labelPromotion";
             this.labelPromotion.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.labelPromotion.Size = new System.Drawing.Size(155, 32);
+            this.labelPromotion.Size = new System.Drawing.Size(222, 32);
             this.labelPromotion.TabIndex = 19;
             this.labelPromotion.Text = "$1200";
             this.labelPromotion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,12 +184,12 @@
             // 
             // labelPrice
             // 
-            this.labelPrice.Font = new System.Drawing.Font("Franklin Gothic Demi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPrice.Font = new System.Drawing.Font("Franklin Gothic Demi", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPrice.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelPrice.Location = new System.Drawing.Point(653, 392);
+            this.labelPrice.Location = new System.Drawing.Point(602, 392);
             this.labelPrice.Margin = new System.Windows.Forms.Padding(3);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(155, 32);
+            this.labelPrice.Size = new System.Drawing.Size(222, 32);
             this.labelPrice.TabIndex = 15;
             this.labelPrice.Text = "$1000";
             this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -198,10 +198,10 @@
             // 
             this.labelTitle.Font = new System.Drawing.Font("Franklin Gothic Demi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelTitle.Location = new System.Drawing.Point(425, 44);
+            this.labelTitle.Location = new System.Drawing.Point(404, 44);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(10);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(383, 32);
+            this.labelTitle.Size = new System.Drawing.Size(404, 32);
             this.labelTitle.TabIndex = 11;
             this.labelTitle.Text = "Title text";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -210,20 +210,20 @@
             // 
             this.labelSpecifications.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecifications.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelSpecifications.Location = new System.Drawing.Point(425, 96);
+            this.labelSpecifications.Location = new System.Drawing.Point(404, 96);
             this.labelSpecifications.Margin = new System.Windows.Forms.Padding(10);
             this.labelSpecifications.Name = "labelSpecifications";
-            this.labelSpecifications.Size = new System.Drawing.Size(361, 283);
+            this.labelSpecifications.Size = new System.Drawing.Size(404, 283);
             this.labelSpecifications.TabIndex = 13;
             this.labelSpecifications.Text = "Specifications:";
             // 
-            // ItemPage
+            // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Name = "ItemPage";
+            this.Name = "ProductPage";
             this.Size = new System.Drawing.Size(1366, 726);
             this.Resize += new System.EventHandler(this.ItemPage_Resize);
             this.panel1.ResumeLayout(false);

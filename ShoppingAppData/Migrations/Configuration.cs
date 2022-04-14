@@ -18,6 +18,25 @@
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
+
+            DataContext dataContext = new DataContext();
+
+            dataContext.Categories.AddOrUpdate(new Models.Category()
+            {
+                Id = 0,
+                Title = "Uncategorized",
+                Thumbnail = File.ReadAllBytes(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"\icons8-category-64.png")
+            });
+
+            dataContext.Users.AddOrUpdate(new Models.User()
+            {
+                Id = 0,
+                Username = "admin",
+                Password = "admin",
+                RoleId = 1
+            });
+
+            dataContext.SaveChanges();
         }
     }
 }
