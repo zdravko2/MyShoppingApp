@@ -15,8 +15,8 @@ namespace ShoppingApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            //Application.Run(new FormLogin());
-            Application.Run(new FormApp(new User() { Username = "User", Password = "asdasd", RoleId = 1 }));
+            Application.Run(new FormLogin());
+            //Application.Run(new FormApp(new User() { Username = "User", Password = "asdasd", RoleId = 1 }));
         }
     }
 }

@@ -59,6 +59,8 @@ namespace ShoppingApp
             {
                 _dataContext.Users.Add(user);
                 _dataContext.SaveChanges();
+
+                MessageBox.Show("Registration complete.");
             }
             else
             {
