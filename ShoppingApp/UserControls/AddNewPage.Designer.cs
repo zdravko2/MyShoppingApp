@@ -34,11 +34,13 @@
             this.buttonCategory = new System.Windows.Forms.Button();
             this.buttonProduct = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Controls.Add(this.buttonCategory);
@@ -126,6 +128,18 @@
             this.labelTitle.Text = "Add Product or select a category to edit";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(463, 248);
+            this.label1.Margin = new System.Windows.Forms.Padding(13, 14, 13, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(271, 29);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Select category:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // AddNewPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -149,5 +163,6 @@
         private Button buttonProduct;
         private Label labelTitle;
         private ComboBox comboBox1;
+        private Label label1;
     }
 }
