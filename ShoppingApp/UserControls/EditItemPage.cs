@@ -83,7 +83,7 @@ namespace ShoppingApp.UserControls
         public string Specifications
         {
             get { return this.Product.Specifications; }
-            set { this.Product.Specifications = value.Trim(); richTextBox1.Text = this.Product.Specifications; }
+            set { this.Product.Specifications = value.Replace("\n", "").Trim(); richTextBox1.Text = this.Product.Specifications; }
         }
         public decimal Price
         {

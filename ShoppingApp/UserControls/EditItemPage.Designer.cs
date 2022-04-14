@@ -186,7 +186,6 @@
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.richTextBox1.Location = new System.Drawing.Point(494, 160);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.richTextBox1.Multiline = false;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(314, 154);
