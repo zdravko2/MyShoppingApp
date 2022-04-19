@@ -80,7 +80,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
         {
             if (this.User.Id == FormApp.User.Id)
             {
-                MessageBox.Show("You can not change your permissions.", "Error");
+                MessageBox.Show("You can not change your own permissions.", "Error");
                 return;
             }
 
