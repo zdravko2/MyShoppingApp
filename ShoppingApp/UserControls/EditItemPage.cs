@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -57,7 +58,7 @@ namespace ShoppingApp.UserControls
             //Filling autocomplete source for Brands and Categories
             FillAutocompleteSource();
 
-            DisplayInfo(_dataContext.Products.Find(product.Id));
+            DisplayInfo(_dataContext.Products.Include(p => p.Category).First(p => p.Id == product.Id));
         }
 
 
@@ -90,11 +91,11 @@ namespace ShoppingApp.UserControls
             get { return this.Product.Price; }
             set { this.Product.Price = value; textBox3.Text = this.Product.Price.ToString("0.00"); }
         }
-        public int CategoryId
+        public Category Category
         {
-            get { return this.Product.CategoryId; }
-            set { this.Product.CategoryId = value;
-                Category c = _dataContext.Categories.Find(this.Product.CategoryId);
+            get { return this.Product.Category; }
+            set { this.Product.Category = value;
+                Category c = _dataContext.Categories.Find(this.Product.Category.Id);
                 if (c != null)  comboBox1.SelectedItem = c.Title;
                 else            comboBox1.SelectedItem = string.Empty;
             }
@@ -138,7 +139,7 @@ namespace ShoppingApp.UserControls
             Model = product.Model;
             Specifications = product.Specifications;
             Price = product.Price;
-            CategoryId = product.CategoryId;
+            Category = product.Category;
             Promotion = product.Promotion;
             Thumbnail = Thumbnail.Length > 1 ? product.Thumbnail : Converter.ToBinary(Properties.Resources.image_error);
         }
@@ -165,7 +166,7 @@ namespace ShoppingApp.UserControls
             textBox2.Text = Model;
             richTextBox1.Text = Specifications;
             textBox3.Text = Price.ToString();
-            comboBox1.Text = _dataContext.Categories.Find(CategoryId).Title;
+            comboBox1.Text = Category.Title;
             textBox5.Text = Promotion.ToString();
             pictureBox1.BackgroundImage = Converter.ToImage(Thumbnail);
         }
@@ -203,7 +204,7 @@ namespace ShoppingApp.UserControls
                 newProduct.Model = textBox2.Text;
                 newProduct.Specifications = richTextBox1.Text;
                 newProduct.Price = Convert.ToDecimal(textBox3.Text);
-                newProduct.CategoryId = _dataContext.Categories.First(c => c.Title == comboBox1.Text).Id;
+                newProduct.Category = _dataContext.Categories.FirstOrDefault(c => c.Title == comboBox1.Text);
                 newProduct.Promotion = Convert.ToInt32(textBox5.Text);
                 newProduct.Thumbnail = Converter.ToBinary(pictureBox1.BackgroundImage);
 
@@ -218,14 +219,14 @@ namespace ShoppingApp.UserControls
             }
             else
             {
-                Product newProduct = _dataContext.Products.Find(Product.Id);
+                Product newProduct = _dataContext.Products.Include(p => p.Category).First(p => p.Id == Product.Id);
 
                 newProduct.Id = Product.Id;
                 newProduct.Brand = textBox1.Text;
                 newProduct.Model = textBox2.Text;
                 newProduct.Specifications = richTextBox1.Text;
                 newProduct.Price = Convert.ToDecimal(textBox3.Text);
-                newProduct.CategoryId = _dataContext.Categories.First(c => c.Title == comboBox1.Text).Id;
+                newProduct.Category = _dataContext.Categories.FirstOrDefault(c => c.Title == comboBox1.Text);
                 newProduct.Promotion = Convert.ToInt32(textBox5.Text);
                 newProduct.Thumbnail = Converter.ToBinary(pictureBox1.BackgroundImage);
 
@@ -251,17 +252,17 @@ namespace ShoppingApp.UserControls
                 else
                 {
                     //Remove Carts from Carts table where there is this Product
-                    List<Cart> carts = _dataContext.Carts.Where(c => c.ProductId == Product.Id).ToList();
+                    List<Cart> carts = _dataContext.Carts.Include(c => c.User).Include(c => c.Product).Where(c => c.Product.Id == Product.Id).ToList();
                     _dataContext.Carts.RemoveRange(carts);
 
                     //Remove products from Orders table
-                    List<Order> orders = _dataContext.Orders.Where(o => o.ProductId == Product.Id).ToList();
+                    List<Order> orders = _dataContext.Orders.Include(o => o.User).Include(o => o.Product).Where(o => o.Product.Id == Product.Id).ToList();
                     _dataContext.Orders.RemoveRange(orders);
 
                     //Remove product from Product table
                     _dataContext.Products.Remove(Product);
 
-                    _dataContext.SaveChanges().ToString();
+                    _dataContext.SaveChanges();
                     MessageBox.Show("Item deleted successfully.");
                 }
 

@@ -41,7 +41,7 @@ namespace ShoppingApp.UserControls
 
             for (int i = 0; i < MainControl.Controls.Count; i++)
             {
-                MainControl.Controls[i].Width = MainControl.Width - 15;
+                MainControl.Controls[i].Width = MainControl.Width - 20;
             }
         }
 

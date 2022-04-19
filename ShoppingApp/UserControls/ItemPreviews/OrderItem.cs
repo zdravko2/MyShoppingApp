@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,20 +38,20 @@ namespace ShoppingApp.UserControls.ItemPreviews
             get { return this.Order.Id; }
             set { this.Order.Id = value; labelId.Text = this.Order.Id.ToString(); }
         }
-        public int UserId
+        public User User
         {
-            get { return this.Order.UserId; }
-            set { this.Order.UserId = value;
-                User u = _dataContext.Users.Find(this.Order.UserId);
+            get { return this.Order.User; }
+            set { this.Order.User = value;
+                User u = _dataContext.Users.Find(this.Order.User.Id);
                 if (u != null) labelUsername.Text = u.Username.Trim();
                 else labelUsername.Text = "*Deleted User*";
             }
         }
-        public int ProductId
+        public Product Product
         {
-            get { return this.Order.Id; }
-            set { this.Order.ProductId = value; 
-                Product p = _dataContext.Products.Find(this.Order.ProductId);
+            get { return this.Order.Product; }
+            set { this.Order.Product = value; 
+                Product p = _dataContext.Products.Find(this.Order.Product.Id);
                 if (p != null) labelProduct.Text = p.Brand.Trim() + " " + p.Model.Trim();
                 else labelProduct.Text = "*Deleted Product*";
             }
@@ -67,8 +68,8 @@ namespace ShoppingApp.UserControls.ItemPreviews
         {
             //Update control values
             Id = order.Id;
-            UserId = order.UserId;
-            ProductId = order.ProductId;
+            User = order.User;
+            Product = order.Product;
             Quantity = order.Quantity;
         }
 
@@ -80,7 +81,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
         private void labelProduct_Click(object sender, EventArgs e)
         {
             //Opens ProductPage for the product
-            Product product = _dataContext.Products.Find(this.Order.ProductId);
+            Product product = _dataContext.Products.Include(p => p.Category).First(p => p.Id == this.Order.Product.Id);
             ProductPage productPage = new ProductPage(product);
         }
     }

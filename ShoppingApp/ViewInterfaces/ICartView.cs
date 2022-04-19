@@ -10,7 +10,7 @@ namespace ShoppingApp.ViewInterfaces
 {
     public interface ICartView : IBaseView<Cart>
     {
-        int UserId { get; set; }
-        int ProductId { get; set; }
+        User User { get; set; }
+        Product Product { get; set; }
     }
 }

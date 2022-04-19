@@ -63,10 +63,10 @@ namespace ShoppingApp.UserControls.ItemPreviews
             get { return this.Product.Price; }
             set { this.Product.Price = value; labelPrice.Text = "$" + this.Product.Price.ToString("0.00"); }
         }
-        public int CategoryId
+        public Category Category
         {
-            get { return this.Product.CategoryId; }
-            set { this.Product.CategoryId = value; }
+            get { return this.Product.Category; }
+            set { this.Product.Category = value; }
         }
         public int Promotion
         {
@@ -89,7 +89,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
             Model = product.Model.Trim();
             Specifications = product.Specifications.Trim();
             Price = product.Price;
-            CategoryId = product.CategoryId;
+            Category = product.Category;
             Promotion = product.Promotion;
             Thumbnail = Thumbnail.Length > 1 ? product.Thumbnail : Converter.ToBinary(Properties.Resources.image_error);
 

@@ -60,7 +60,7 @@
             this.panelSortSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSortSettings.Location = new System.Drawing.Point(0, 0);
             this.panelSortSettings.Name = "panelSortSettings";
-            this.panelSortSettings.Size = new System.Drawing.Size(1366, 55);
+            this.panelSortSettings.Size = new System.Drawing.Size(1391, 55);
             this.panelSortSettings.TabIndex = 5;
             // 
             // panel1
@@ -181,7 +181,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(842, 17);
+            this.label3.Location = new System.Drawing.Point(867, 17);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 26);
@@ -198,7 +198,7 @@
             "12",
             "24",
             "48"});
-            this.comboBox3.Location = new System.Drawing.Point(921, 13);
+            this.comboBox3.Location = new System.Drawing.Point(946, 13);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(0);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(53, 29);
@@ -210,7 +210,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(974, 17);
+            this.label2.Location = new System.Drawing.Point(999, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 26);
@@ -223,7 +223,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(1187, 17);
+            this.label1.Location = new System.Drawing.Point(1212, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 26);
@@ -240,7 +240,7 @@
             "Promotions first",
             "Brand name",
             "Price"});
-            this.comboBox2.Location = new System.Drawing.Point(1040, 13);
+            this.comboBox2.Location = new System.Drawing.Point(1065, 13);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(0);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(147, 29);
@@ -255,7 +255,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.comboBox1.Location = new System.Drawing.Point(1242, 13);
+            this.comboBox1.Location = new System.Drawing.Point(1267, 13);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(114, 29);
@@ -268,7 +268,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1366, 671);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1391, 671);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // ListingPage
@@ -281,7 +281,7 @@
             this.Controls.Add(this.panelSortSettings);
             this.MainControl = this.flowLayoutPanel1;
             this.Name = "ListingPage";
-            this.Size = new System.Drawing.Size(1366, 726);
+            this.Size = new System.Drawing.Size(1391, 726);
             this.Resize += new System.EventHandler(this.ListingPage_Resize);
             this.panelSortSettings.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

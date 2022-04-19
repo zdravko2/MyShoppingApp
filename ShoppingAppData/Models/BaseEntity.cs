@@ -8,6 +8,6 @@ namespace ShoppingAppData.Models
 {
     public class BaseEntity
     {
-        public int Id { get; set; } = -1;
+        public int Id { get; set; }
     }
 }

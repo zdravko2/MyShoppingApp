@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using ShoppingAppData.Models;
 
+#pragma warning disable CS8618, CS8602 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 namespace ShoppingAppData
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\ShoppingApp_Database.mdf; Integrated Security = True")
+        private readonly string dbConnection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\ShoppingApp_Database.mdf; Integrated Security = True";
+        public DataContext() : base(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " +
+                                    Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + 
+                                    @"\ShoppingApp_Database.mdf; Integrated Security = True")
         {
-            //if (!Database.Exists("dbo"))
-            //{
-            //    Database.SetInitializer(new DropCreateDatabaseAlways<DataContext>());
-            //}
+            if (!Database.Exists("dbo"))
+            {
+                Database.SetInitializer(new DropCreateDatabaseAlways<DataContext>());
+            }
         }
 
         public DbSet<Product> Products { get; set; }
@@ -25,3 +24,4 @@ namespace ShoppingAppData
         public DbSet<Category> Categories { get; set; }
     }
 }
+#pragma warning restore CS8618, CS8602 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.

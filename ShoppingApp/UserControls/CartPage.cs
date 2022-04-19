@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -60,11 +61,12 @@ namespace ShoppingApp.UserControls
         //Function used to populate items in the flow layout panel
         public void PopulateWithItems(User user)
         {
-            List<Cart> cartlist = _dataContext.Carts.Where(c => c.UserId == user.Id).ToList();
+            List<Cart> cartlist = _dataContext.Carts.Include(c => c.User).Include(c => c.Product).Where(c => c.User.Id == user.Id).ToList();
 
             for (int i = 0; i < cartlist.Count; i++)
             {
-                Product product = _dataContext.Products.Find(cartlist[i].ProductId);
+                int id = cartlist[i].Product.Id;
+                Product product = _dataContext.Products.Include(p => p.Category).First(p => p.Id == id);
 
                 CartItem cartItem = new CartItem(product);
                 MainControl.Controls.Add(cartItem);
@@ -105,23 +107,36 @@ namespace ShoppingApp.UserControls
             {
                 if (((CartItem)MainControl.Controls[i]).Selected)
                 {
-                    Order order = new Order();
-                    order.UserId = FormApp.User.Id;
-                    order.ProductId = ((CartItem)MainControl.Controls[i]).Id;
-                    order.Quantity = ((CartItem)MainControl.Controls[i]).Quantity;
+                    int id = ((CartItem)MainControl.Controls[i]).Id;
 
-                    if (_dataContext.Users.Find(order.UserId) == null || _dataContext.Products.Find(order.ProductId) == null)
+                    Order order = new Order()
+                    {
+                        User = _dataContext.Users.FirstOrDefault(u => u.Id == FormApp.User.Id),
+                        Product = _dataContext.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == id),
+                        Quantity = ((CartItem)MainControl.Controls[i]).Quantity
+                    };
+
+                    if (_dataContext.Users.FirstOrDefault(u => u.Id == order.User.Id) == null || _dataContext.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == order.Product.Id) == null)
                     {
                         MessageBox.Show("There was a problem when creating the order.", "Error");
+                        continue;
                     }
-                    else
-                    {
-                        MessageBox.Show("Order added successfully");
-                    }
+
+                    Cart cart = _dataContext.Carts.Include(c => c.User).Include(c => c.Product).FirstOrDefault(c => c.User.Id == FormApp.User.Id);
+
+                    //Removes cart for this user and adds a new order
+                    _dataContext.Carts.Remove(cart);
                     _dataContext.Orders.Add(order);
                     _dataContext.SaveChanges();
                 }
             }
+
+            _dataContext.SaveChanges();
+            MessageBox.Show("Order added successfully");
+
+            //Reopens the page to update info
+            CartPage cartPage = new CartPage(FormApp.User);
+            this.Parent.Parent.Controls.Remove(this.Parent);
         }
     }
 }

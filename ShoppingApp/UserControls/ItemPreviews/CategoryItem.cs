@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -61,7 +62,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
         //Event that handles clicking on the item
         private void OnClick(object sender, EventArgs e)
         {
-            List<Product> products = _dataContext.Products.Where(p => p.CategoryId == this.Category.Id).ToList();
+            List<Product> products = _dataContext.Products.Include(p => p.Category).Where(p => p.Category.Id == this.Category.Id).ToList();
             ListingPage listingPage = new ListingPage(products);
         }
     }

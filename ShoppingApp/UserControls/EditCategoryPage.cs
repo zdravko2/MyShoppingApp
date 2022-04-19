@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace ShoppingApp.UserControls
 
             DisplayInfo(new Category());
         }
+
         public EditCategoryPage(Category category)
         {
             InitializeComponent();
@@ -116,14 +118,16 @@ namespace ShoppingApp.UserControls
                 }
                 else
                 {
+                    List<Product> products = _dataContext.Products.Include(p => p.Category).Where(p => p.Category.Id == Category.Id).ToList();
+
                     //Move the Products from this Category to Category "Uncategorized"
-                    List<Product> products = _dataContext.Products.Where(p => p.CategoryId == Category.Id).ToList();
 
                     //Check if Category "Uncateogorized" exists
-                    if (_dataContext.Categories.Where(c => c.Title == "Uncategorized").ToList().Count > 0)
+                    if (_dataContext.Categories.FirstOrDefault(c => c.Title == "Uncategorized") != null)
                     {
-                        Category temp = _dataContext.Categories.Where(c => c.Title == "Uncategorized").First();
-                        products.ForEach(p => p.CategoryId = temp.Id);
+                        Category temp = _dataContext.Categories.FirstOrDefault(c => c.Title == "Uncategorized");
+                        products.ForEach(p => p.Category = temp);
+                        _dataContext.SaveChanges();
                     }
                     else
                     {
@@ -134,14 +138,17 @@ namespace ShoppingApp.UserControls
                         });
                         _dataContext.SaveChanges();
 
-                        products.ForEach(p => p.CategoryId = _dataContext.Categories.Where(c => c.Title == "Uncategorized").First().Id);
+                        products.ForEach(p => p.Category = _dataContext.Categories.FirstOrDefault(c => c.Title == "Uncategorized"));
                     }
 
                     //Remove Category from Category table
-                    Category = _dataContext.Categories.Find(Category.Id);
-                    if (Category.Title != "Uncategorized") _dataContext.Categories.Remove(Category);
+                    Category = _dataContext.Categories.FirstOrDefault(c => c.Id == Category.Id);
+                    if (Category.Title != "Uncategorized")
+                    {
+                        _dataContext.Categories.Remove(Category);
+                    }
 
-                    _dataContext.SaveChanges().ToString();
+                    _dataContext.SaveChanges();
                     MessageBox.Show("Category deleted successfully.");
                 }
 

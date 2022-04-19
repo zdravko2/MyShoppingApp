@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -151,7 +152,8 @@ namespace ShoppingApp.UserControls
 
             for (int i = (pageIndex - 1) * Convert.ToInt32(comboBox3.Text); i < products.Count && i < (pageIndex) * Convert.ToInt32(comboBox3.Text); i++)
             {
-                ListingItem listingItem = new ListingItem(_dataContext.Products.Find(products[i].Id));
+                int id = products[i].Id;
+                ListingItem listingItem = new ListingItem(_dataContext.Products.Include(p => p.Category).First(p => p.Id == id));
                 MainControl.Controls.Add(listingItem);
             }
         }

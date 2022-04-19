@@ -73,30 +73,16 @@ namespace ShoppingApp
                 string tempArgs = searchArgs[i];
                 if (i == 0)
                 {
-                    products.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
-                    products.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
-                    foreach (Product p in _dataContext.Products.ToList())
-                    {
-                        List<Category> tempCategories = _dataContext.Categories.Where(c => c.Id == p.CategoryId).ToList();
-                        if (tempCategories.Count > 0 && tempCategories[0].Title.Contains(tempArgs))
-                        {
-                            products.Add(p);
-                        }
-                    }
+                    products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
+                    products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
+                    products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Category.Title, "%" + tempArgs + "%")).ToList());
                 }
                 else
                 {
                     List<Product> tempList = new List<Product>();
-                    tempList.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
-                    tempList.AddRange(_dataContext.Products.Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
-                    foreach (Product p in _dataContext.Products.ToList())
-                    {
-                        List<Category> tempCategories = _dataContext.Categories.Where(c => c.Id == p.CategoryId).ToList();
-                        if (tempCategories.Count > 0 && tempCategories[0].Title.Contains(tempArgs))
-                        {
-                            tempList.Add(p);
-                        }
-                    }
+                    tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
+                    tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
+                    tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Category.Title, "%" + tempArgs + "%")).ToList());
 
                     products = products.Where(p => tempList.Contains(p)).ToList();
                 }
@@ -126,7 +112,7 @@ namespace ShoppingApp
         private void buttonHome_Click(object sender, EventArgs e)
         {
             //Getting data from database and storing it in a list
-            List<Product> products = _dataContext.Products.ToList();
+            List<Product> products = _dataContext.Products.Include(p => p.Category).ToList();
 
             //Opening new Page and feeding with data
             ListingPage homePage = new ListingPage(products);

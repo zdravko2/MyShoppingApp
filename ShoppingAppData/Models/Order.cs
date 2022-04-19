@@ -8,8 +8,8 @@ namespace ShoppingAppData.Models
 {
     public class Order : BaseEntity
     {
-        public int UserId { get; set; } = -1;
-        public int ProductId { get; set; } = -1;
+        public User User { get; set; } = new User();
+        public Product Product { get; set; } = new Product();
         public int Quantity { get; set; } = 0;
     }
 }

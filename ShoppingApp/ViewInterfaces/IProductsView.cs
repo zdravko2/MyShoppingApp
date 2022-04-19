@@ -13,7 +13,7 @@ namespace ShoppingApp.ViewInterfaces
         string Model { get; set; }
         string Specifications { get; set; }
         decimal Price { get; set; }
-        int CategoryId { get; set; }
+        Category Category { get; set; }
         int Promotion { get; set; }
         Byte[] Thumbnail { get; set; }
     }

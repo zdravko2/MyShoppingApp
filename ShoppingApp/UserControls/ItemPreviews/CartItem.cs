@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -73,10 +74,10 @@ namespace ShoppingApp.UserControls.ItemPreviews
             get { return this.Product.Price; }
             set { this.Product.Price = value; labelPrice.Text = "$" + this.Product.Price.ToString("0.00"); }
         }
-        public int CategoryId
+        public Category Category
         {
-            get { return this.Product.CategoryId; }
-            set { this.Product.CategoryId = value; }
+            get { return this.Product.Category; }
+            set { this.Product.Category = value; }
         }
         public int Promotion
         {
@@ -102,7 +103,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
             Model = product.Model.Trim();
             Specifications = product.Specifications.Trim();
             Price = product.Price;
-            CategoryId = product.CategoryId;
+            Category = product.Category;
             Promotion = product.Promotion;
             Thumbnail = Thumbnail.Length > 1 ? product.Thumbnail : Converter.ToBinary(Properties.Resources.image_error);
 
@@ -123,7 +124,7 @@ namespace ShoppingApp.UserControls.ItemPreviews
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            Cart cart = _dataContext.Carts.Where(c => c.UserId == FormApp.User.Id && c.ProductId == Product.Id).ToList().First();
+            Cart cart = _dataContext.Carts.Include(c => c.User).Include(c => c.Product).Where(c => c.User.Id == FormApp.User.Id && c.Product.Id == Product.Id).ToList().First();
 
             if (cart != null)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -52,14 +53,20 @@ namespace ShoppingApp.UserControls
             //Checks if the selected value is a new category
             if (comboBox1.SelectedIndex == 0)
             {
+                //Opens new page for editing a new category
                 EditCategoryPage editCategoryPage = new EditCategoryPage();
             }
             else
             {
                 Category category = _dataContext.Categories.Where(c => c.Title == comboBox1.Text).First();
 
-                if (category == null) return;
+                if (category == null)
+                {
+                    MessageBox.Show("Could not find category.", "Error");
+                    return;
+                }
 
+                //Opens new page for editing an existing category
                 category.Title = category.Title.Trim();
                 EditCategoryPage editCategoryPage = new EditCategoryPage(category);
             }    

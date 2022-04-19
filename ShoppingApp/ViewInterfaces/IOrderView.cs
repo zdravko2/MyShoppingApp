@@ -9,8 +9,8 @@ namespace ShoppingApp.ViewInterfaces
 {
     public interface IOrderView : IBaseView<Order>
     {
-        int UserId { get; set; }
-        int ProductId { get; set; }
+        User User { get; set; }
+        Product Product { get; set; }
         int Quantity { get; set; }
     }
 }

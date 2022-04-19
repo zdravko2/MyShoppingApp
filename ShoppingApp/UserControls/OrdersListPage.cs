@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace ShoppingApp.UserControls
 
             MainControl = flowLayoutPanel1;
 
-            List<Order> orders = _dataContext.Orders.ToList();
+            List<Order> orders = _dataContext.Orders.Include(o => o.User).Include(o => o.Product).ToList();
             PopulateWithItems(orders);
             OrdersListPage_Resize(this, new EventArgs());
         }
@@ -40,7 +41,7 @@ namespace ShoppingApp.UserControls
 
             for (int i = 0; i < MainControl.Controls.Count; i++)
             {
-                MainControl.Controls[i].Width = MainControl.Width - 15;
+                MainControl.Controls[i].Width = MainControl.Width - 20;
             }
         }
 

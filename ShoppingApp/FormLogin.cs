@@ -22,16 +22,13 @@ namespace ShoppingApp
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            List<User> temp = _dataContext.Users.Where(u => u.Username == textBoxUsername.Text && u.Password == textBoxPassword.Text).ToList();
+            User user = _dataContext.Users.FirstOrDefault(u => u.Username == textBoxUsername.Text && u.Password == textBoxPassword.Text);
 
             //Checks if user exists
-            if (temp.Count > 0)
+            if (user != null)
             {
-                User user = new User();
-                user.Id = temp[0].Id;
-                user.Username = temp[0].Username.Trim();
-                user.Password = temp[0].Password.Trim();
-                user.RoleId = temp[0].RoleId;
+                user.Username = user.Username.Trim();
+                user.Password = user.Password.Trim();
 
                 //Opens the main app
                 this.Hide();
@@ -48,16 +45,17 @@ namespace ShoppingApp
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Username = textBoxUsername.Text;
-            user.Password = textBoxPassword.Text;
-
-            List<User> users = _dataContext.Users.Where(u => u.Username == textBoxUsername.Text).ToList();
+            User user = _dataContext.Users.FirstOrDefault(u => u.Username == textBoxUsername.Text);
 
             //Checks if user doesn't exist
-            if (users.Count == 0)
+            if (user == null)
             {
-                _dataContext.Users.Add(user);
+                _dataContext.Users.Add(new User()
+                {
+                    Username = textBoxUsername.Text,
+                    Password = textBoxPassword.Text,
+                    RoleId = 0
+                });
                 _dataContext.SaveChanges();
 
                 MessageBox.Show("Registration complete.");

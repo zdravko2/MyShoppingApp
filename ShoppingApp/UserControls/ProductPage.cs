@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace ShoppingApp.UserControls
 
             if (FormApp.User.RoleId == 1) buttonEdit.Visible = true;
 
-            DisplayInfo(_dataContext.Products.Find(product.Id));
+            DisplayInfo(_dataContext.Products.Include(p => p.Category).First(p => p.Id == product.Id));
             ItemPage_Resize(this, new EventArgs());
         }
 
@@ -66,10 +67,10 @@ namespace ShoppingApp.UserControls
             get { return this.Product.Price; }
             set { this.Product.Price = value; labelPrice.Text = "$" + this.Product.Price.ToString("0.00"); }
         }
-        public int CategoryId
+        public Category Category
         {
-            get { return this.Product.CategoryId; }
-            set { this.Product.CategoryId = value; }
+            get { return this.Product.Category; }
+            set { this.Product.Category = value; }
         }
         public int Promotion
         {
@@ -103,7 +104,7 @@ namespace ShoppingApp.UserControls
             Model = product.Model.Trim();
             Specifications = product.Specifications.Trim();
             Price = product.Price;
-            CategoryId = product.CategoryId;
+            Category = product.Category;
             Promotion = product.Promotion;
             Thumbnail = Thumbnail.Length > 1 ? product.Thumbnail : Converter.ToBinary(Properties.Resources.image_error);
 
@@ -119,17 +120,15 @@ namespace ShoppingApp.UserControls
         //Event that adds a product to the cart of the user in the database
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
-            Cart cart = new Cart() { UserId = FormApp.User.Id, ProductId = this.Product.Id, };
+            Cart cart = new Cart() 
+            { 
+                User = _dataContext.Users.FirstOrDefault(u => u.Id == FormApp.User.Id),
+                Product = _dataContext.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == Product.Id)
+            };
 
-            if (_dataContext.Users.Find(cart.UserId) == null || _dataContext.Products.Find(cart.ProductId) == null)
+            if (_dataContext.Carts.Include(c => c.User).Include(c => c.Product).FirstOrDefault(c => c.User.Id == cart.Id && c.Product.Id == cart.Id) != null)
             {
-                MessageBox.Show("There was a porblem finding the product or user", "Eror");
-                return;
-            }
-
-            if (_dataContext.Carts.Where(c => c.UserId == cart.UserId && c.ProductId == cart.ProductId).ToList().Count > 0)
-            {
-                MessageBox.Show("The item has been already added to cart.");
+                MessageBox.Show("Item already added to cart.");
                 return;
             }
 
@@ -140,7 +139,7 @@ namespace ShoppingApp.UserControls
         //Event that creates a page for editing a product when button is clicked
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            EditItemPage editItemPage = new EditItemPage(_dataContext.Products.Find(Product.Id));
+            EditItemPage editItemPage = new EditItemPage(_dataContext.Products.Include(p => p.Category).First(p => p.Id == Product.Id));
         }
 
         //Event that closes the Page when button is clicked

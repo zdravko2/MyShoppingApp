@@ -45,7 +45,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1366, 66);
+            this.panel1.Size = new System.Drawing.Size(1391, 66);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -53,7 +53,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(203)))), ((int)(((byte)(180)))));
-            this.label3.Location = new System.Drawing.Point(1000, 0);
+            this.label3.Location = new System.Drawing.Point(1025, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(363, 66);
             this.label3.TabIndex = 3;
@@ -68,7 +68,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(122)))), ((int)(((byte)(247)))));
             this.label2.Location = new System.Drawing.Point(140, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(854, 66);
+            this.label2.Size = new System.Drawing.Size(879, 66);
             this.label2.TabIndex = 2;
             this.label2.Text = "Username";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -91,7 +91,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 66);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1366, 660);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1391, 660);
             this.flowLayoutPanel1.TabIndex = 7;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -104,7 +104,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "UsersListPage";
-            this.Size = new System.Drawing.Size(1366, 726);
+            this.Size = new System.Drawing.Size(1391, 726);
             this.Resize += new System.EventHandler(this.UserListPage_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
