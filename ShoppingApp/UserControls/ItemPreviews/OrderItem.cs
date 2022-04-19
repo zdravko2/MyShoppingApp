@@ -75,13 +75,15 @@ namespace ShoppingApp.UserControls.ItemPreviews
 
         private void labelUsername_Click(object sender, EventArgs e)
         {
-
+            //Opens OrdersListPage for the selected user
+            User user = _dataContext.Users.FirstOrDefault(u => u.Id == this.Order.User.Id);
+            OrdersListPage ordersListPage = new OrdersListPage(user);
         }
 
         private void labelProduct_Click(object sender, EventArgs e)
         {
             //Opens ProductPage for the product
-            Product product = _dataContext.Products.Include(p => p.Category).First(p => p.Id == this.Order.Product.Id);
+            Product product = _dataContext.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == this.Order.Product.Id);
             ProductPage productPage = new ProductPage(product);
         }
     }

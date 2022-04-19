@@ -76,6 +76,7 @@ namespace ShoppingApp
                     products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
                     products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
                     products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Category.Title, "%" + tempArgs + "%")).ToList());
+                    products.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Specifications, "%" + tempArgs + "%")).ToList());
                 }
                 else
                 {
@@ -83,6 +84,7 @@ namespace ShoppingApp
                     tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Brand, "%" + tempArgs + "%")).ToList());
                     tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Model, "%" + tempArgs + "%")).ToList());
                     tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Category.Title, "%" + tempArgs + "%")).ToList());
+                    tempList.AddRange(_dataContext.Products.Include(p => p.Category).Where(p => DbFunctions.Like(p.Specifications, "%" + tempArgs + "%")).ToList());
 
                     products = products.Where(p => tempList.Contains(p)).ToList();
                 }

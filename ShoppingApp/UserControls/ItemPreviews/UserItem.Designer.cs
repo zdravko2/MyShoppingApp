@@ -47,6 +47,7 @@
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Username";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // labelRole
             // 
@@ -60,6 +61,7 @@
             this.labelRole.TabIndex = 3;
             this.labelRole.Text = "Role";
             this.labelRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelRole.Click += new System.EventHandler(this.labelRole_Click);
             // 
             // labelId
             // 

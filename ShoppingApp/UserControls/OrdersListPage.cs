@@ -22,7 +22,7 @@ namespace ShoppingApp.UserControls
             InitializeComponent();
 
             //Settings for initializing the Page
-            TabPage tabPage = new TabPage("Users list");
+            TabPage tabPage = new TabPage("Orders list");
             tabPage.Controls.Add(this);
             FormApp.TabControl.Controls.Add(tabPage);
             FormApp.TabControl.SelectedTab = tabPage;
@@ -34,6 +34,23 @@ namespace ShoppingApp.UserControls
             OrdersListPage_Resize(this, new EventArgs());
         }
 
+        public OrdersListPage(User user)
+        {
+            InitializeComponent();
+
+            //Settings for initializing the Page
+            TabPage tabPage = new TabPage("Orders list for user: " + _dataContext.Users.FirstOrDefault(u => u.Id == user.Id).Username);
+            tabPage.Controls.Add(this);
+            FormApp.TabControl.Controls.Add(tabPage);
+            FormApp.TabControl.SelectedTab = tabPage;
+
+            MainControl = flowLayoutPanel1;
+
+            List<Order> orders = _dataContext.Orders.Include(o => o.User).Include(o => o.Product).Where(o => o.User.Id == _dataContext.Users.FirstOrDefault(u => u.Id == user.Id).Id).ToList();
+            PopulateWithItems(orders);
+            OrdersListPage_Resize(this, new EventArgs());
+        }
+
         //Event used to handle resizing of the Form
         private void OrdersListPage_Resize(object sender, EventArgs e)
         {
@@ -41,7 +58,7 @@ namespace ShoppingApp.UserControls
 
             for (int i = 0; i < MainControl.Controls.Count; i++)
             {
-                MainControl.Controls[i].Width = MainControl.Width - 20;
+                MainControl.Controls[i].Width = MainControl.Width - 25;
             }
         }
 
