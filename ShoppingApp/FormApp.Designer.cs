@@ -44,6 +44,7 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -52,6 +53,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(31)))), ((int)(((byte)(50)))));
+            this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.buttonOrdersList);
             this.panelMenu.Controls.Add(this.buttonUsersList);
             this.panelMenu.Controls.Add(this.buttonUser);
@@ -85,7 +87,6 @@
             this.buttonOrdersList.Text = "Orders";
             this.buttonOrdersList.UseVisualStyleBackColor = true;
             this.buttonOrdersList.Visible = false;
-            this.buttonOrdersList.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonOrdersList.Click += new System.EventHandler(this.buttonOrdersList_Click);
             // 
             // buttonUsersList
@@ -104,7 +105,6 @@
             this.buttonUsersList.Text = "Users";
             this.buttonUsersList.UseVisualStyleBackColor = true;
             this.buttonUsersList.Visible = false;
-            this.buttonUsersList.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonUsersList.Click += new System.EventHandler(this.buttonUsersList_Click);
             // 
             // buttonUser
@@ -151,7 +151,6 @@
             this.buttonAddNew.Text = "Add New";
             this.buttonAddNew.UseVisualStyleBackColor = true;
             this.buttonAddNew.Visible = false;
-            this.buttonAddNew.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonSettings
@@ -169,7 +168,6 @@
             this.buttonSettings.TabIndex = 3;
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
-            this.buttonSettings.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // buttonCart
@@ -187,7 +185,6 @@
             this.buttonCart.TabIndex = 2;
             this.buttonCart.Text = "Cart";
             this.buttonCart.UseVisualStyleBackColor = true;
-            this.buttonCart.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
             // 
             // buttonCategory
@@ -205,7 +202,6 @@
             this.buttonCategory.TabIndex = 1;
             this.buttonCategory.Text = "Category";
             this.buttonCategory.UseVisualStyleBackColor = true;
-            this.buttonCategory.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonCategory.Click += new System.EventHandler(this.buttonCategory_Click);
             // 
             // buttonHome
@@ -223,7 +219,6 @@
             this.buttonHome.TabIndex = 0;
             this.buttonHome.Text = "Home";
             this.buttonHome.UseVisualStyleBackColor = false;
-            this.buttonHome.Click += new System.EventHandler(this.OnMenuButtonClick);
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // panelTitle
@@ -303,6 +298,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(203)))), ((int)(((byte)(180)))));
+            this.label2.Location = new System.Drawing.Point(1, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 55);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Shopping App";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -345,5 +352,6 @@
         private Label label1;
         private Button buttonUsersList;
         private Button buttonOrdersList;
+        private Label label2;
     }
 }
