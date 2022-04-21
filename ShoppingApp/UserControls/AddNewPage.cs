@@ -41,6 +41,12 @@ namespace ShoppingApp.UserControls
             MainControl.Location = new Point(MainControl.Parent.Width / 2 - MainControl.Width / 2, MainControl.Parent.Height / 2 - MainControl.Height / 2);
         }
 
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            //Opens a new page for listing of all products
+            ListingPage listingPage = new ListingPage(_dataContext.Products.ToList());
+        }
+
         private void buttonProduct_Click(object sender, EventArgs e)
         {
             //Opens a new page for adding a new product

@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.buttonMyOrders = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonOrdersList = new System.Windows.Forms.Button();
-            this.buttonUsersList = new System.Windows.Forms.Button();
-            this.buttonUser = new System.Windows.Forms.Button();
             this.panelButtonIndex = new System.Windows.Forms.Panel();
-            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonUser = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCart = new System.Windows.Forms.Button();
             this.buttonCategory = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
+            this.buttonMyOrders = new System.Windows.Forms.Button();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.buttonUsersList = new System.Windows.Forms.Button();
+            this.buttonOrdersList = new System.Windows.Forms.Button();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,17 +54,17 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(31)))), ((int)(((byte)(50)))));
-            this.panelMenu.Controls.Add(this.buttonMyOrders);
-            this.panelMenu.Controls.Add(this.label2);
-            this.panelMenu.Controls.Add(this.buttonOrdersList);
-            this.panelMenu.Controls.Add(this.buttonUsersList);
-            this.panelMenu.Controls.Add(this.buttonUser);
             this.panelMenu.Controls.Add(this.panelButtonIndex);
-            this.panelMenu.Controls.Add(this.buttonAddNew);
+            this.panelMenu.Controls.Add(this.label2);
+            this.panelMenu.Controls.Add(this.buttonUser);
             this.panelMenu.Controls.Add(this.buttonSettings);
             this.panelMenu.Controls.Add(this.buttonCart);
             this.panelMenu.Controls.Add(this.buttonCategory);
             this.panelMenu.Controls.Add(this.buttonHome);
+            this.panelMenu.Controls.Add(this.buttonMyOrders);
+            this.panelMenu.Controls.Add(this.buttonAddNew);
+            this.panelMenu.Controls.Add(this.buttonUsersList);
+            this.panelMenu.Controls.Add(this.buttonOrdersList);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(122)))), ((int)(((byte)(247)))));
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -73,22 +73,13 @@
             this.panelMenu.Size = new System.Drawing.Size(200, 646);
             this.panelMenu.TabIndex = 0;
             // 
-            // buttonMyOrders
+            // panelButtonIndex
             // 
-            this.buttonMyOrders.FlatAppearance.BorderSize = 0;
-            this.buttonMyOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMyOrders.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMyOrders.Image = global::ShoppingApp.Properties.Resources.icons8_purchase_order_32;
-            this.buttonMyOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMyOrders.Location = new System.Drawing.Point(0, 300);
-            this.buttonMyOrders.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonMyOrders.Name = "buttonMyOrders";
-            this.buttonMyOrders.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonMyOrders.Size = new System.Drawing.Size(200, 50);
-            this.buttonMyOrders.TabIndex = 4;
-            this.buttonMyOrders.Text = "My Orders";
-            this.buttonMyOrders.UseVisualStyleBackColor = true;
-            this.buttonMyOrders.Click += new System.EventHandler(this.buttonMyOrders_Click);
+            this.panelButtonIndex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(122)))), ((int)(((byte)(247)))));
+            this.panelButtonIndex.Location = new System.Drawing.Point(0, 100);
+            this.panelButtonIndex.Name = "panelButtonIndex";
+            this.panelButtonIndex.Size = new System.Drawing.Size(10, 50);
+            this.panelButtonIndex.TabIndex = 1;
             // 
             // label2
             // 
@@ -100,42 +91,6 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Shopping App";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonOrdersList
-            // 
-            this.buttonOrdersList.FlatAppearance.BorderSize = 0;
-            this.buttonOrdersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOrdersList.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonOrdersList.Image = global::ShoppingApp.Properties.Resources.icons8_purchase_order_32;
-            this.buttonOrdersList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOrdersList.Location = new System.Drawing.Point(0, 450);
-            this.buttonOrdersList.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonOrdersList.Name = "buttonOrdersList";
-            this.buttonOrdersList.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonOrdersList.Size = new System.Drawing.Size(200, 50);
-            this.buttonOrdersList.TabIndex = 7;
-            this.buttonOrdersList.Text = "Orders";
-            this.buttonOrdersList.UseVisualStyleBackColor = true;
-            this.buttonOrdersList.Visible = false;
-            this.buttonOrdersList.Click += new System.EventHandler(this.buttonOrdersList_Click);
-            // 
-            // buttonUsersList
-            // 
-            this.buttonUsersList.FlatAppearance.BorderSize = 0;
-            this.buttonUsersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUsersList.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonUsersList.Image = global::ShoppingApp.Properties.Resources.icons8_users_list_32;
-            this.buttonUsersList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUsersList.Location = new System.Drawing.Point(0, 400);
-            this.buttonUsersList.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonUsersList.Name = "buttonUsersList";
-            this.buttonUsersList.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonUsersList.Size = new System.Drawing.Size(200, 50);
-            this.buttonUsersList.TabIndex = 6;
-            this.buttonUsersList.Text = "Users";
-            this.buttonUsersList.UseVisualStyleBackColor = true;
-            this.buttonUsersList.Visible = false;
-            this.buttonUsersList.Click += new System.EventHandler(this.buttonUsersList_Click);
             // 
             // buttonUser
             // 
@@ -156,32 +111,6 @@
             this.buttonUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonUser.UseVisualStyleBackColor = true;
             this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
-            // 
-            // panelButtonIndex
-            // 
-            this.panelButtonIndex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(122)))), ((int)(((byte)(247)))));
-            this.panelButtonIndex.Location = new System.Drawing.Point(0, 100);
-            this.panelButtonIndex.Name = "panelButtonIndex";
-            this.panelButtonIndex.Size = new System.Drawing.Size(10, 50);
-            this.panelButtonIndex.TabIndex = 1;
-            // 
-            // buttonAddNew
-            // 
-            this.buttonAddNew.FlatAppearance.BorderSize = 0;
-            this.buttonAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddNew.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddNew.Image = global::ShoppingApp.Properties.Resources.icons8_add_new_32;
-            this.buttonAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddNew.Location = new System.Drawing.Point(1, 350);
-            this.buttonAddNew.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonAddNew.Size = new System.Drawing.Size(200, 50);
-            this.buttonAddNew.TabIndex = 5;
-            this.buttonAddNew.Text = "Add New/Edit";
-            this.buttonAddNew.UseVisualStyleBackColor = true;
-            this.buttonAddNew.Visible = false;
-            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonSettings
             // 
@@ -250,6 +179,77 @@
             this.buttonHome.Text = "Home";
             this.buttonHome.UseVisualStyleBackColor = false;
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
+            // 
+            // buttonMyOrders
+            // 
+            this.buttonMyOrders.FlatAppearance.BorderSize = 0;
+            this.buttonMyOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyOrders.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonMyOrders.Image = global::ShoppingApp.Properties.Resources.icons8_purchase_order_32;
+            this.buttonMyOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMyOrders.Location = new System.Drawing.Point(0, 300);
+            this.buttonMyOrders.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMyOrders.Name = "buttonMyOrders";
+            this.buttonMyOrders.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonMyOrders.Size = new System.Drawing.Size(200, 50);
+            this.buttonMyOrders.TabIndex = 4;
+            this.buttonMyOrders.Text = "My Orders";
+            this.buttonMyOrders.UseVisualStyleBackColor = true;
+            this.buttonMyOrders.Click += new System.EventHandler(this.buttonMyOrders_Click);
+            // 
+            // buttonAddNew
+            // 
+            this.buttonAddNew.FlatAppearance.BorderSize = 0;
+            this.buttonAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddNew.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddNew.Image = global::ShoppingApp.Properties.Resources.icons8_add_new_32;
+            this.buttonAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddNew.Location = new System.Drawing.Point(1, 350);
+            this.buttonAddNew.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonAddNew.Size = new System.Drawing.Size(200, 50);
+            this.buttonAddNew.TabIndex = 5;
+            this.buttonAddNew.Text = "Add/Edit";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Visible = false;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
+            // 
+            // buttonUsersList
+            // 
+            this.buttonUsersList.FlatAppearance.BorderSize = 0;
+            this.buttonUsersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUsersList.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonUsersList.Image = global::ShoppingApp.Properties.Resources.icons8_users_list_32;
+            this.buttonUsersList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUsersList.Location = new System.Drawing.Point(0, 400);
+            this.buttonUsersList.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonUsersList.Name = "buttonUsersList";
+            this.buttonUsersList.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonUsersList.Size = new System.Drawing.Size(200, 50);
+            this.buttonUsersList.TabIndex = 6;
+            this.buttonUsersList.Text = "Users";
+            this.buttonUsersList.UseVisualStyleBackColor = true;
+            this.buttonUsersList.Visible = false;
+            this.buttonUsersList.Click += new System.EventHandler(this.buttonUsersList_Click);
+            // 
+            // buttonOrdersList
+            // 
+            this.buttonOrdersList.FlatAppearance.BorderSize = 0;
+            this.buttonOrdersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrdersList.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOrdersList.Image = global::ShoppingApp.Properties.Resources.icons8_purchase_order_32;
+            this.buttonOrdersList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOrdersList.Location = new System.Drawing.Point(0, 450);
+            this.buttonOrdersList.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonOrdersList.Name = "buttonOrdersList";
+            this.buttonOrdersList.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonOrdersList.Size = new System.Drawing.Size(200, 50);
+            this.buttonOrdersList.TabIndex = 7;
+            this.buttonOrdersList.Text = "Orders";
+            this.buttonOrdersList.UseVisualStyleBackColor = true;
+            this.buttonOrdersList.Visible = false;
+            this.buttonOrdersList.Click += new System.EventHandler(this.buttonOrdersList_Click);
             // 
             // panelTitle
             // 
@@ -326,7 +326,7 @@
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(986, 508);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Settings";
             // 
             // FormApp
             // 

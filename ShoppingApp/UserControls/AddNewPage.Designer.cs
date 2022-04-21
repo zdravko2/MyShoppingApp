@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonFind = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonClose = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonFind);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.buttonClose);
@@ -51,6 +53,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(848, 503);
             this.panel1.TabIndex = 24;
+            // 
+            // buttonFind
+            // 
+            this.buttonFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(31)))), ((int)(((byte)(50)))));
+            this.buttonFind.FlatAppearance.BorderSize = 0;
+            this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFind.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonFind.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFind.Location = new System.Drawing.Point(125, 260);
+            this.buttonFind.Margin = new System.Windows.Forms.Padding(13, 14, 13, 14);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(203, 74);
+            this.buttonFind.TabIndex = 27;
+            this.buttonFind.Text = "Find Product";
+            this.buttonFind.UseVisualStyleBackColor = false;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
             // label1
             // 
@@ -132,12 +151,12 @@
             // 
             this.labelTitle.Font = new System.Drawing.Font("Franklin Gothic Demi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelTitle.Location = new System.Drawing.Point(125, 56);
+            this.labelTitle.Location = new System.Drawing.Point(108, 56);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(13, 14, 13, 14);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(609, 118);
+            this.labelTitle.Size = new System.Drawing.Size(639, 164);
             this.labelTitle.TabIndex = 11;
-            this.labelTitle.Text = "Add new Product or select a Category to edit";
+            this.labelTitle.Text = "Find a Prodcut to edit, add new Product or select a Category to edit";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddNewPage
@@ -164,5 +183,6 @@
         private Label labelTitle;
         private ComboBox comboBox1;
         private Label label1;
+        private Button buttonFind;
     }
 }

@@ -14,6 +14,7 @@ namespace ShoppingApp
         public static User User;
         public static TabControl TabControl;
         public static TextBox SearchBar;
+        public static Label TitleLabel;
         private readonly DataContext _dataContext = new DataContext();
 
         public FormApp(User user)
@@ -24,6 +25,7 @@ namespace ShoppingApp
             User = user;
             TabControl = tabControlMain;
             SearchBar = textBox1;
+            TitleLabel = labelTitle;
 
             //TabControl settings
             tabControlMain.Dock = DockStyle.None;
@@ -113,6 +115,7 @@ namespace ShoppingApp
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
+            OnMenuButtonClick(sender, e);
             //Getting data from database and storing it in a list
             List<Product> products = _dataContext.Products.Include(p => p.Category).ToList();
 
@@ -122,6 +125,7 @@ namespace ShoppingApp
 
         private void buttonCategory_Click(object sender, EventArgs e)
         {
+            OnMenuButtonClick(sender, e);
             //Getting data from database and storing it in a list
             List<Category> categories = _dataContext.Categories.ToList();
 
@@ -131,26 +135,43 @@ namespace ShoppingApp
 
         private void buttonCart_Click(object sender, EventArgs e)
         {
+            OnMenuButtonClick(sender, e);
             //Opening a new Page with the current user
             CartPage cartPage = new CartPage(FormApp.User);
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-
+            OnMenuButtonClick(sender, e);
         }
 
         private void buttonMyOrders_Click(object sender, EventArgs e)
         {
+            OnMenuButtonClick(sender, e);
             //Opening new Page for list of this user's orders
             OrdersListPage ordersListPage = new OrdersListPage(FormApp.User);
         }
 
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
+            OnMenuButtonClick(sender, e);
             //Opening new Page for creating an item
             AddNewPage addNewPage = new AddNewPage();
             //EditItemPage editItemPage = new EditItemPage();
+        }
+
+        private void buttonUsersList_Click(object sender, EventArgs e)
+        {
+            OnMenuButtonClick(sender, e);
+            //Opening new Page for list of all users
+            UsersListPage usersListPage = new UsersListPage();
+        }
+
+        private void buttonOrdersList_Click(object sender, EventArgs e)
+        {
+            OnMenuButtonClick(sender, e);
+            //Opening new Page for list of all orders
+            OrdersListPage ordersListPage = new OrdersListPage();
         }
 
         //Button for logging out and switching users
@@ -166,18 +187,6 @@ namespace ShoppingApp
                 form.ShowDialog();
                 this.Close();
             }
-        }
-
-        private void buttonUsersList_Click(object sender, EventArgs e)
-        {
-            //Opening new Page for list of all users
-            UsersListPage usersListPage = new UsersListPage();
-        }
-
-        private void buttonOrdersList_Click(object sender, EventArgs e)
-        {
-            //Opening new Page for list of all orders
-            OrdersListPage ordersListPage = new OrdersListPage();
         }
     }
 }

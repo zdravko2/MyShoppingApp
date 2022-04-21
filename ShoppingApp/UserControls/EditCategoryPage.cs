@@ -204,5 +204,11 @@ namespace ShoppingApp.UserControls
                 MessageBox.Show("Item saved successfully.");
             }
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            FormApp.TabControl.SelectedIndex -= 1;
+            FormApp.TabControl.TabPages.Remove((TabPage)this.Parent);
+        }
     }
 }

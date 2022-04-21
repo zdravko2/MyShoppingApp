@@ -162,6 +162,8 @@ namespace ShoppingApp.UserControls
         {
             Button button = sender as Button;
             pageIndex = Convert.ToInt32(button.Text);
+            FormApp.TitleLabel.Text = "Listing page: " + button.Text;
+
             UpdatePageButtons();
         }
 
@@ -171,6 +173,7 @@ namespace ShoppingApp.UserControls
             Sort();
 
             pageIndex = 1;
+            FormApp.TitleLabel.Text = "Listing page: 1";
             UpdatePageButtons();
         }
 

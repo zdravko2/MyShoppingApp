@@ -45,6 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -277,6 +278,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Controls.Add(this.buttonCreate);
@@ -299,6 +301,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(848, 503);
             this.panel1.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(331, 212);
+            this.label7.Margin = new System.Windows.Forms.Padding(10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(155, 101);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "(Divide each specification with a comma and a space)";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // comboBox1
             // 
@@ -363,5 +377,6 @@
         private Panel panel1;
         private Button buttonClose;
         private ComboBox comboBox1;
+        private Label label7;
     }
 }

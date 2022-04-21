@@ -63,13 +63,14 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Franklin Gothic Demi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonClose.Image = global::ShoppingApp.Properties.Resources.icons8_close_32;
-            this.buttonClose.Location = new System.Drawing.Point(1425, 14);
+            this.buttonClose.Location = new System.Drawing.Point(777, 14);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Padding = new System.Windows.Forms.Padding(0, 0, 2, 1);
             this.buttonClose.Size = new System.Drawing.Size(31, 34);
-            this.buttonClose.TabIndex = 23;
+            this.buttonClose.TabIndex = 24;
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // buttonSave
             // 
@@ -194,7 +195,6 @@
         #endregion
 
         private Panel panel1;
-        private Button buttonClose;
         private Button buttonSave;
         private PictureBox pictureBox1;
         private Button buttonUploadImage;
@@ -202,5 +202,6 @@
         private Button buttonDelete;
         private TextBox textBox1;
         private Label label1;
+        private Button buttonClose;
     }
 }
