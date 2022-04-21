@@ -24,7 +24,7 @@ namespace ShoppingApp.UserControls
             InitializeComponent();
 
             //Settings for initializing the Page
-            TabPage tabPage = new TabPage("Category");
+            TabPage tabPage = new TabPage("Categories");
             tabPage.Controls.Add(this);
             FormApp.TabControl.Controls.Add(tabPage);
             FormApp.TabControl.SelectedTab = tabPage;
