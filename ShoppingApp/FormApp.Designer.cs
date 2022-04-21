@@ -178,7 +178,7 @@
             this.buttonAddNew.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddNew.Size = new System.Drawing.Size(200, 50);
             this.buttonAddNew.TabIndex = 5;
-            this.buttonAddNew.Text = "Add New";
+            this.buttonAddNew.Text = "Add New/Edit";
             this.buttonAddNew.UseVisualStyleBackColor = true;
             this.buttonAddNew.Visible = false;
             this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
