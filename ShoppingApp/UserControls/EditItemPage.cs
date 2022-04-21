@@ -89,7 +89,7 @@ namespace ShoppingApp.UserControls
         public decimal Price
         {
             get { return this.Product.Price; }
-            set { this.Product.Price = value; textBox3.Text = this.Product.Price.ToString("0.00"); }
+            set { this.Product.Price = value; textBox3.Text = String.Format("{0:0.00}", this.Product.Price); }
         }
         public Category Category
         {

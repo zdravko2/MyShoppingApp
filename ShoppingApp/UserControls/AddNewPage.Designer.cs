@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonCategory = new System.Windows.Forms.Button();
             this.buttonProduct = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(848, 503);
             this.panel1.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(463, 248);
+            this.label1.Margin = new System.Windows.Forms.Padding(13, 14, 13, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(271, 29);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Select category:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // comboBox1
             // 
@@ -95,7 +107,7 @@
             this.buttonCategory.Name = "buttonCategory";
             this.buttonCategory.Size = new System.Drawing.Size(203, 74);
             this.buttonCategory.TabIndex = 20;
-            this.buttonCategory.Text = "Category";
+            this.buttonCategory.Text = "Edit Category";
             this.buttonCategory.UseVisualStyleBackColor = false;
             this.buttonCategory.Click += new System.EventHandler(this.buttonCategory_Click);
             // 
@@ -112,7 +124,7 @@
             this.buttonProduct.Name = "buttonProduct";
             this.buttonProduct.Size = new System.Drawing.Size(203, 74);
             this.buttonProduct.TabIndex = 0;
-            this.buttonProduct.Text = "Product";
+            this.buttonProduct.Text = "Add New Product";
             this.buttonProduct.UseVisualStyleBackColor = false;
             this.buttonProduct.Click += new System.EventHandler(this.buttonProduct_Click);
             // 
@@ -120,25 +132,13 @@
             // 
             this.labelTitle.Font = new System.Drawing.Font("Franklin Gothic Demi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelTitle.Location = new System.Drawing.Point(145, 56);
+            this.labelTitle.Location = new System.Drawing.Point(125, 56);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(13, 14, 13, 14);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(572, 118);
+            this.labelTitle.Size = new System.Drawing.Size(609, 118);
             this.labelTitle.TabIndex = 11;
-            this.labelTitle.Text = "Add Product or select a category to edit";
+            this.labelTitle.Text = "Add new Product or select a Category to edit";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Demi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(463, 248);
-            this.label1.Margin = new System.Windows.Forms.Padding(13, 14, 13, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 29);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Select category:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AddNewPage
             // 

@@ -140,6 +140,12 @@ namespace ShoppingApp
 
         }
 
+        private void buttonMyOrders_Click(object sender, EventArgs e)
+        {
+            //Opening new Page for list of this user's orders
+            OrdersListPage ordersListPage = new OrdersListPage(FormApp.User);
+        }
+
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
             //Opening new Page for creating an item

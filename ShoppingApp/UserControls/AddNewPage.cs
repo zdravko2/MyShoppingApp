@@ -38,7 +38,6 @@ namespace ShoppingApp.UserControls
         private void AddNewPage_Resize(object sender, EventArgs e)
         {
             if (MainControl == null) return;
-
             MainControl.Location = new Point(MainControl.Parent.Width / 2 - MainControl.Width / 2, MainControl.Parent.Height / 2 - MainControl.Height / 2);
         }
 

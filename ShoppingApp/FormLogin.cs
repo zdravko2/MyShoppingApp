@@ -20,11 +20,12 @@ namespace ShoppingApp
             InitializeComponent();
         }
 
+        //Event for button for login
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             User user = _dataContext.Users.FirstOrDefault(u => u.Username == textBoxUsername.Text && u.Password == textBoxPassword.Text);
 
-            //Checks if user exists
+            //Checks if user exists and logs in the user
             if (user != null)
             {
                 user.Username = user.Username.Trim();
@@ -43,11 +44,12 @@ namespace ShoppingApp
             }
         }
 
+        //Event for button for registration
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             User user = _dataContext.Users.FirstOrDefault(u => u.Username == textBoxUsername.Text);
 
-            //Checks if user doesn't exist
+            //Checks if user doesn't exist and registers the information
             if (user == null)
             {
                 _dataContext.Users.Add(new User()
