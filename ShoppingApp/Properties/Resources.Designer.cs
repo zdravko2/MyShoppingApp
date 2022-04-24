@@ -229,5 +229,15 @@ namespace ShoppingApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap toru_logo {
+            get {
+                object obj = ResourceManager.GetObject("toru-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -6,10 +6,8 @@ namespace ShoppingAppData
 {
     public class DataContext : DbContext
     {
-        //Temporary server connection strings
+        //Test server connection strings
         //@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\ShoppingApp_Database.mdf; Integrated Security = True;"
-        //@"Server = 192.168.0.105,1433; Database = dbo; User Id = admin; Password = admin; Initial Catalog=dbo;"
-        //@"Data Source = GAMER\SQLEXPRESS; AttachDbFilename = C:\Temp\ShoppingApp_Database.mdf; Integrated Security = True;"
         //@"Server = 192.168.0.105,1433; AttachDbFilename = C:\Temp\ShoppingApp_Database.mdf; User Id = admin; Password = admin; Trusted_Connection=True; Initial Catalog=dbo;"
         public DataContext() : base(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Temp\ShoppingApp_Database.mdf; Integrated Security = True;")
         {

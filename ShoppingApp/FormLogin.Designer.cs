@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -36,18 +35,9 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
             this.buttonRegister = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(203)))), ((int)(((byte)(180)))));
-            this.label1.Location = new System.Drawing.Point(61, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(322, 49);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Shopping App";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -81,6 +71,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(116, 265);
             this.textBoxPassword.MaxLength = 255;
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(219, 31);
             this.textBoxPassword.TabIndex = 9;
             // 
@@ -143,12 +134,24 @@
             this.buttonRegister.UseVisualStyleBackColor = false;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::ShoppingApp.Properties.Resources.toru_logo;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(19, 38);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(406, 82);
+            this.pictureBoxLogo.TabIndex = 13;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(444, 552);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonLogin);
@@ -156,18 +159,16 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormLogin";
-            this.Text = "FormLogin";
+            this.Text = "Toru Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label label1;
         private Label label2;
         private TextBox textBoxUsername;
         private TextBox textBoxPassword;
@@ -175,5 +176,6 @@
         private Button buttonLogin;
         private Label labelError;
         private Button buttonRegister;
+        private PictureBox pictureBoxLogo;
     }
 }

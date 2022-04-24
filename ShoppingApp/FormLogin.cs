@@ -26,7 +26,7 @@ namespace ShoppingApp
             User user = _dataContext.Users.FirstOrDefault(u => u.Username == textBoxUsername.Text && u.Password == textBoxPassword.Text);
 
             //Checks if user exists and logs in the user
-            if (user != null)
+            if (user != null && user.Username.Trim() == textBoxUsername.Text && user.Password.Trim() == textBoxPassword.Text)
             {
                 user.Username = user.Username.Trim();
                 user.Password = user.Password.Trim();
@@ -50,7 +50,7 @@ namespace ShoppingApp
             User user = _dataContext.Users.FirstOrDefault(u => u.Username == textBoxUsername.Text);
 
             //Checks if user doesn't exist and registers the information
-            if (user == null)
+            if (user == null || user.Username.Trim() != textBoxUsername.Text)
             {
                 _dataContext.Users.Add(new User()
                 {

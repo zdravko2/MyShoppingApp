@@ -30,7 +30,6 @@
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelButtonIndex = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCart = new System.Windows.Forms.Button();
@@ -46,16 +45,18 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.tabControlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(31)))), ((int)(((byte)(50)))));
+            this.panelMenu.Controls.Add(this.pictureBoxLogo);
             this.panelMenu.Controls.Add(this.panelButtonIndex);
-            this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.buttonUser);
             this.panelMenu.Controls.Add(this.buttonSettings);
             this.panelMenu.Controls.Add(this.buttonCart);
@@ -80,17 +81,6 @@
             this.panelButtonIndex.Name = "panelButtonIndex";
             this.panelButtonIndex.Size = new System.Drawing.Size(10, 50);
             this.panelButtonIndex.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(203)))), ((int)(((byte)(180)))));
-            this.label2.Location = new System.Drawing.Point(1, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 55);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Shopping App";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonUser
             // 
@@ -258,6 +248,7 @@
             this.panelTitle.Controls.Add(this.textBox1);
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.panelTitle.Location = new System.Drawing.Point(200, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(0);
             this.panelTitle.Name = "panelTitle";
@@ -328,6 +319,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Settings";
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::ShoppingApp.Properties.Resources.toru_logo;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 10);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(178, 72);
+            this.pictureBoxLogo.TabIndex = 10;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // FormApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -338,16 +340,17 @@
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Franklin Gothic Demi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(187)))), ((int)(((byte)(194)))));
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1150, 680);
             this.Name = "FormApp";
-            this.Text = "Shopping App";
+            this.Text = "Toru App";
             this.Resize += new System.EventHandler(this.FormApp_Resize);
             this.panelMenu.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,7 +373,7 @@
         private Label label1;
         private Button buttonUsersList;
         private Button buttonOrdersList;
-        private Label label2;
         private Button buttonMyOrders;
+        private PictureBox pictureBoxLogo;
     }
 }
